@@ -132,6 +132,41 @@
       "image": "/assets/boxer.jpeg",
       "isFavorite": true,
       "id": 20
+    },
+    {
+      "name": "sprinkles",
+      "description": "a little fucker",
+      "image": "/assets/corgi.png",
+      "isFavorite": false,
+      "id": 21
+    },
+    {
+      "name": "potates",
+      "description": "a fat fic kk",
+      "image": "/assets/cowardly.png",
+      "isFavorite": true,
+      "id": 22
+    },
+    {
+      "name": "asdfasdf",
+      "description": "asdfasdfasdfsdfasdfas",
+      "image": "/assets/dalmation.png",
+      "isFavorite": true,
+      "id": 24
+    },
+    {
+      "name": "dddddddd",
+      "description": "",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 25
+    },
+    {
+      "name": "testGGGGGG",
+      "description": "triple G yo momma",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 26
     }
   ]
 }
