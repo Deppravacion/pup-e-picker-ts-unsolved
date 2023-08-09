@@ -4,7 +4,7 @@
       "name": "Lempi",
       "image": "/assets/corgi.png",
       "description": "mindshare Overpass but navigating RSS quickly jaggedly",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 0
     },
     {
@@ -27,13 +27,6 @@
       "description": "ASCII Home Secured atop Unbranded Global male",
       "isFavorite": false,
       "id": 3
-    },
-    {
-      "name": "Elwyn",
-      "image": "/assets/blue-heeler.png",
-      "description": "Hatchback cupiditate Electric boliviano Uruguayo tenderly Poland",
-      "isFavorite": true,
-      "id": 4
     },
     {
       "name": "Krystina",

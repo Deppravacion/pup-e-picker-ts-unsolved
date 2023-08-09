@@ -9,6 +9,7 @@ import { Toaster, toast } from "react-hot-toast";
 export function FunctionalApp() {
   const [allDogs, setAllDogs] = useState<Dog[]>([])
   const [ isLoading, setIsLoading] = useState<boolean>(false)
+  const [showDogs, setShowDogs]= useState<string>('')
 
   const fetchData = () => {
     setIsLoading(true)
@@ -17,6 +18,19 @@ export function FunctionalApp() {
       .finally(() => setIsLoading(false))
 
   }
+
+  const favDogs = allDogs.filter((dog) => dog.isFavorite === true )
+  const scallyWags = allDogs.filter((dog) => dog.isFavorite === false)
+  
+  const filteredDogs = (() => {
+    if (showDogs === 'favDogs') {
+      return favDogs
+    }
+    if ( showDogs === 'scallyWags' ) {
+      return scallyWags
+    }
+    return allDogs
+  })()
 
   useEffect (() => {
     const myPromise = fetchData()
@@ -34,9 +48,14 @@ export function FunctionalApp() {
       </header>
       <FunctionalSection
       allDogs={allDogs} 
+      setShowDogs={() => setShowDogs}
+      showDogs={showDogs}
       />
       <FunctionalDogs 
       allDogs={allDogs} 
+      favDogs={favDogs}
+      scallyWags={scallyWags}
+      filteredDogs={filteredDogs}
       fetchData={fetchData}
       isLoading={isLoading}
       />

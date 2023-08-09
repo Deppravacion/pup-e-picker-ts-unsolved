@@ -6,8 +6,10 @@ import { Dog } from "../types";
 
 interface DogProps {
  allDogs: Dog[];
+ setShowDogs: () => void;
+ showDogs: string;
 }
-export const FunctionalSection:React.FunctionComponent<DogProps> = ({ allDogs }) => {
+export const FunctionalSection:React.FunctionComponent<DogProps> = ({ allDogs, setShowDogs, showDogs }) => {
 
   return (
     <section id="main-section">
@@ -18,7 +20,9 @@ export const FunctionalSection:React.FunctionComponent<DogProps> = ({ allDogs })
         </Link>
         <div className="selectors">
           {/* This should display the favorited count */}
-          <div className={`selector active`} onClick={() => {
+          <div className={`selector ${showDogs} === 'favDogs' && 'active'`} onClick={(e) => {
+           console.log(e.target);
+           
             // toggle active class on click, 
             //favorite count, filter the allDogs
           }}>
@@ -26,7 +30,7 @@ export const FunctionalSection:React.FunctionComponent<DogProps> = ({ allDogs })
           </div>
 
           {/* This should display the unfavorited count */}
-          <div className={`selector`} onClick={() => {}}>
+          <div className={`selector ${showDogs} === 'favDogs' && 'active'`} onClick={() => {}}>
             unfavorited ( 25 )
           </div>
           <div className={`selector`} onClick={() => {}}>

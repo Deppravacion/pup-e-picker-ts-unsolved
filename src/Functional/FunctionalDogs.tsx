@@ -4,14 +4,17 @@ import { Dog } from "../types";
 
 interface DogProps {
   allDogs: Dog[];
+  favDogs: Dog[];
+  scallyWags: Dog[];
   fetchData:() => void;
   isLoading: boolean;
+  filteredDogs: Dog[];
 }
-export const FunctionalDogs: React.FC<DogProps> = ( { allDogs, fetchData, isLoading }) => {  
+export const FunctionalDogs: React.FC<DogProps> = ( { fetchData, isLoading, filteredDogs, favDogs, scallyWags }) => {  
   return (
     <>
       { 
-        allDogs.map((dog:Dog) => (
+        filteredDogs.map((dog:Dog) => (
           <DogCard 
             dog={{
               id: dog.id,
