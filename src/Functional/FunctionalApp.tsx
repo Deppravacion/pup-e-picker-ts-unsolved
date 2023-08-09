@@ -16,7 +16,6 @@ export function FunctionalApp() {
     return Requests.getAllDogs()
       .then((dogs) => setAllDogs(dogs))
       .finally(() => setIsLoading(false))
-
   }
 
   const favDogs = allDogs.filter((dog) => dog.isFavorite === true)
