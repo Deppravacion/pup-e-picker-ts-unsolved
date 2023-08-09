@@ -9,6 +9,7 @@ body {
   height: 100vh;
   margin: 0px auto;
   padding: 0px;
+  background-color: skyblue;
 }
 
 #root {

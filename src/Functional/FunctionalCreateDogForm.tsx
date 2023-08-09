@@ -1,22 +1,28 @@
 import { useState } from "react";
 import { dogPictures } from "../dog-pictures";
-
-// use this as your default selected image
-const defaultSelectedImage = dogPictures.BlueHeeler;
+import { Requests } from "../api";
 
 interface Props {
   isLoading: boolean;
+  fetchData: () => void;
 }
-export const FunctionalCreateDogForm: React.FC<Props> = () => {
+export const FunctionalCreateDogForm: React.FC<Props> = ({ isLoading, fetchData }) => {
   const [inputName, setInputName] = useState('')
   const [inputDescription, setInputDescription] = useState('')
   const [inputPicture, setInputPicture] = useState('')
+  const dog = {
+    name: inputName, 
+    description: inputDescription, 
+    image: inputPicture,
+    isFavorite: true,
+  }
   return (
     <form
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
         e.preventDefault();
+        Requests.postDog(dog).then(() => fetchData())
       }}
     >
       <h4>Create a New Dog</h4>
@@ -34,7 +40,7 @@ export const FunctionalCreateDogForm: React.FC<Props> = () => {
           );
         })}
       </select>
-      <input type="submit" />
+      <input type="submit" disabled={isLoading } />
     </form>
   );
 };

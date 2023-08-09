@@ -125,6 +125,13 @@
       "description": "Androgynous deposit Executive North Bicycle Clothing harness",
       "isFavorite": false,
       "id": 19
+    },
+    {
+      "name": "O.G.",
+      "description": "my oG boy is a good Boy! love you",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": true,
+      "id": 20
     }
   ]
 }

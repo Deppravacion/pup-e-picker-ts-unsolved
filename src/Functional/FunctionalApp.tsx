@@ -42,7 +42,7 @@ export function FunctionalApp() {
       />
       <FunctionalCreateDogForm  
         isLoading={isLoading} 
-        
+        fetchData={fetchData}
         />
       <Toaster />
     </div>
