@@ -1,9 +1,10 @@
-import { Requests } from "./api";
-
+// import { Requests } from "./api";
+// import { baseUrl } from "./api";
+// import { Dog } from "./types";
 const messAround = async () => {
-  // Write your test code in this function
+ console.log('messing around');
 
-  await Requests.dummyFunction();
+
 };
 
 export const Playground = () => {

@@ -1,92 +1,39 @@
 import { DogCard } from "../Shared/DogCard";
-import { dogPictures } from "../dog-pictures";
+import { Requests } from "../api";
+import { Dog } from "../types";
 
-// Right now these dogs are constant, but in reality we should be getting these from our server
-export const FunctionalDogs = () => {
+interface DogProps {
+  allDogs: Dog[];
+  fetchData:() => void;
+  isLoading: boolean;
+}
+export const FunctionalDogs: React.FC<DogProps> = ( { allDogs, fetchData, isLoading }) => {  
   return (
-    //  the "<> </>"" are called react fragments, it's like adding all the html inside
-    // without adding an actual html element
     <>
-      <DogCard
-        dog={{
-          id: 1,
-          image: dogPictures.BlueHeeler,
-          description: "Example Description",
-          isFavorite: false,
-          name: "Cute Blue Heeler",
-        }}
-        key={1}
-        onTrashIconClick={() => {
-          alert("clicked trash");
-        }}
-        onHeartClick={() => {
-          alert("clicked heart");
-        }}
-        onEmptyHeartClick={() => {
-          alert("clicked empty heart");
-        }}
-        isLoading={false}
-      />
-      <DogCard
-        dog={{
-          id: 2,
-          image: dogPictures.Boxer,
-          description: "Example Description",
-          isFavorite: false,
-          name: "Cute Boxer",
-        }}
-        key={2}
-        onTrashIconClick={() => {
-          alert("clicked trash");
-        }}
-        onHeartClick={() => {
-          alert("clicked heart");
-        }}
-        onEmptyHeartClick={() => {
-          alert("clicked empty heart");
-        }}
-        isLoading={false}
-      />
-      <DogCard
-        dog={{
-          id: 3,
-          image: dogPictures.Chihuahua,
-          description: "Example Description",
-          isFavorite: false,
-          name: "Cute Chihuahua",
-        }}
-        key={3}
-        onTrashIconClick={() => {
-          alert("clicked trash");
-        }}
-        onHeartClick={() => {
-          alert("clicked heart");
-        }}
-        onEmptyHeartClick={() => {
-          alert("clicked empty heart");
-        }}
-        isLoading={false}
-      />
-      <DogCard
-        dog={{
-          id: 4,
-          image: dogPictures.Corgi,
-          description: "Example Description",
-          isFavorite: false,
-          name: "Cute Corgi",
-        }}
-        key={4}
-        onTrashIconClick={() => {
-          alert("clicked trash");
-        }}
-        onHeartClick={() => {
-          alert("clicked heart");
-        }}
-        onEmptyHeartClick={() => {
-          alert("clicked empty heart");
-        }}
-        isLoading={false}
-      />
+      { 
+        allDogs.map((dog:Dog) => (
+          <DogCard 
+            dog={{
+              id: dog.id,
+              image: dog.image,
+              description: dog.description,
+              isFavorite: dog.isFavorite,
+              name: dog.name,
+            }}
+            key={dog.id}
+            onTrashIconClick={() => {            
+              Requests.deleteDog(dog.id).then(() => fetchData())                   
+            }}
+            onHeartClick={() => {
+              Requests.updateDog(dog.isFavorite,dog.id).then(() => fetchData())
+            }}
+            onEmptyHeartClick={() => {
+              Requests.updateDog(dog.isFavorite,dog.id).then(() => fetchData())              
+            }}
+            isLoading={isLoading}        
+          />
+        ))
+      }
     </>
   );
 };

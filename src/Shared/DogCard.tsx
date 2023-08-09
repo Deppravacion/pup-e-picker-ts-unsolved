@@ -1,3 +1,4 @@
+
 import { Dog } from "../types";
 import { FavoriteButton } from "./FavoriteButton";
 import { TrashButton } from "./TrashButton";

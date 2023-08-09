@@ -1,8 +1,14 @@
 // you can use this type for react children if you so choose
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { Dog } from "../types";
 
-export const FunctionalSection = () => {
+
+interface DogProps {
+ allDogs: Dog[];
+}
+export const FunctionalSection:React.FunctionComponent<DogProps> = ({ allDogs }) => {
+
   return (
     <section id="main-section">
       <div className="container-header">
@@ -12,7 +18,10 @@ export const FunctionalSection = () => {
         </Link>
         <div className="selectors">
           {/* This should display the favorited count */}
-          <div className={`selector active`} onClick={() => {}}>
+          <div className={`selector active`} onClick={() => {
+            // toggle active class on click, 
+            //favorite count, filter the allDogs
+          }}>
             favorited ( 12 )
           </div>
 
