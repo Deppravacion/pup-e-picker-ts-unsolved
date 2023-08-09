@@ -1,172 +1,151 @@
 {
   "dogs": [
     {
-      "name": "Vivianne",
-      "image": "/assets/boxer.png",
-      "description": "blah Unbranded Executive Kia productivity at Coupe",
-      "isFavorite": false,
+      "name": "Lempi",
+      "image": "/assets/corgi.png",
+      "description": "mindshare Overpass but navigating RSS quickly jaggedly",
+      "isFavorite": true,
       "id": 0
     },
     {
-      "name": "Agnes",
+      "name": "Wallace",
       "image": "/assets/cowardly.png",
-      "description": "during Shirt magenta Soap array",
-      "isFavorite": false,
+      "description": "Delaware Metal Mendelevium Directives SCSI however quia knuckle",
+      "isFavorite": true,
       "id": 1
     },
     {
-      "name": "Irving",
-      "image": "/assets/boxer.png",
-      "description": "Solutions Cab Venezuela Pennsylvania lux becquerel matrix",
+      "name": "Shanny",
+      "image": "/assets/blue-heeler.png",
+      "description": "panel Wagon damaged Androgynous Tactics benchmark even",
       "isFavorite": false,
       "id": 2
     },
     {
-      "name": "Saige",
+      "name": "Fern",
       "image": "/assets/cowardly.png",
-      "description": "unnaturally invoice methodologies Southwest inherit withdrawal Metal",
-      "isFavorite": true,
+      "description": "ASCII Home Secured atop Unbranded Global male",
+      "isFavorite": false,
       "id": 3
     },
     {
-      "name": "Raegan",
+      "name": "Elwyn",
+      "image": "/assets/blue-heeler.png",
+      "description": "Hatchback cupiditate Electric boliviano Uruguayo tenderly Poland",
+      "isFavorite": true,
+      "id": 4
+    },
+    {
+      "name": "Krystina",
       "image": "/assets/cowardly.png",
-      "description": "Markets FTP Handmade Northwest Accountability alarm South Western",
+      "description": "Real for neural East platforms provident Schaden up",
+      "isFavorite": false,
+      "id": 5
+    },
+    {
+      "name": "Mafalda",
+      "image": "/assets/boxer.png",
+      "description": "Soft Belarus olive Branding West Assistant virtual input",
       "isFavorite": false,
       "id": 6
     },
     {
-      "name": "Rashad",
-      "image": "/assets/cowardly.png",
-      "description": "withdrawal circuit Electric Oman impactful Rubber Cheyanne",
-      "isFavorite": true,
+      "name": "Lucius",
+      "image": "/assets/blue-heeler.png",
+      "description": "experiences buzzing plum Avon indigo Pickup indigo",
+      "isFavorite": false,
       "id": 7
     },
     {
-      "name": "Abe",
-      "image": "/assets/chihuahua.avif",
-      "description": "stable eos Rubber roughly Stanford Keyboard parse bah",
-      "isFavorite": true,
+      "name": "Jarrod",
+      "image": "/assets/corgi.png",
+      "description": "DNS Tungsten Incredible South friendly nor aggregate",
+      "isFavorite": false,
       "id": 8
     },
     {
-      "name": "Maida",
-      "image": "/assets/blue-heeler.png",
-      "description": "interesting instead input ipsa Blues Bins quantifying Unbranded",
-      "isFavorite": false,
+      "name": "Bennie",
+      "image": "/assets/cowardly.png",
+      "description": "VGA Genderflux Tuna Northeast green sievert Mouse strategic",
+      "isFavorite": true,
       "id": 9
     },
     {
-      "name": "Crystel",
+      "name": "Aiyana",
       "image": "/assets/cowardly.png",
-      "description": "ouch Maryland Hybrid hm Magnesium sleepy proactive",
-      "isFavorite": true,
+      "description": "Shoes Account female incidunt Creative IB salmon redundant",
+      "isFavorite": false,
       "id": 10
     },
     {
-      "name": "Zetta",
-      "image": "/assets/corgi.png",
-      "description": "Southwest before Bahrain Cargo Fantastic incidentally Krone",
-      "isFavorite": true,
+      "name": "Ashleigh",
+      "image": "/assets/boxer.png",
+      "description": "sinful virtual gray leading hollow killer program calculate",
+      "isFavorite": false,
       "id": 11
     },
     {
-      "name": "Nayeli",
-      "image": "/assets/boxer.png",
-      "description": "West Engineer Boyer monitor Won healthily finally",
+      "name": "Carlo",
+      "image": "/assets/chihuahua.avif",
+      "description": "circuit among Bronze Fresh female background wireless notwithstanding",
       "isFavorite": true,
       "id": 12
     },
     {
-      "name": "Mario",
-      "image": "/assets/corgi.png",
-      "description": "integrate Innovative Handmade stable Rwanda",
-      "isFavorite": true,
+      "name": "Karlie",
+      "image": "/assets/blue-heeler.png",
+      "description": "Bedfordshire Hybrid Funk Tokelau Convertible deploy Pop",
+      "isFavorite": false,
       "id": 13
     },
     {
-      "name": "Pearl",
-      "image": "/assets/boxer.png",
-      "description": "Blues Nissan North auxiliary aw wig firewall Organic",
-      "isFavorite": true,
+      "name": "Devyn",
+      "image": "/assets/dalmation.png",
+      "description": "blue digital Games deposit Tellurium",
+      "isFavorite": false,
       "id": 14
     },
     {
-      "name": "Ivah",
+      "name": "Caterina",
       "image": "/assets/blue-heeler.png",
-      "description": "North matrix Bicycle Forward Ameliorated Corporate Bismuth South",
+      "description": "District Moscovium Engineer Hybrid Forward payment bus psst",
       "isFavorite": false,
       "id": 15
     },
     {
-      "name": "Orrin",
-      "image": "/assets/dalmation.png",
-      "description": "South Bicycle West connecting services",
-      "isFavorite": false,
+      "name": "Jamie",
+      "image": "/assets/blue-heeler.png",
+      "description": "likewise green ampere wrongly Clothing",
+      "isFavorite": true,
       "id": 16
     },
     {
-      "name": "Bernita",
+      "name": "Nigel",
       "image": "/assets/corgi.png",
-      "description": "disestablish optimizing Dinar Diesel Realigned Borders deposit",
+      "description": "Genderqueer Hatchback Northeast didactic Borders",
       "isFavorite": true,
       "id": 17
     },
     {
-      "name": "Aracely",
-      "image": "/assets/dalmation.png",
-      "description": "mortally Plastic leverage West reason esteemed South",
+      "name": "Olin",
+      "image": "/assets/corgi.png",
+      "description": "Touring Kids Kingdom Pickup Coupe",
       "isFavorite": false,
       "id": 18
     },
     {
-      "name": "Madison",
-      "image": "/assets/boxer.png",
-      "description": "Androgynous deposit Executive North Bicycle Clothing harness",
+      "name": "Katrina",
+      "image": "/assets/cowardly.png",
+      "description": "Handcrafted harum Music glossy Direct ampere Internal",
       "isFavorite": false,
       "id": 19
     },
     {
-      "name": "O.G.",
-      "description": "my oG boy is a good Boy! love you",
-      "image": "/assets/boxer.jpeg",
+      "name": "OG",
+      "description": "OG OG",
+      "image": "/assets/OG.jpg",
       "isFavorite": true,
-      "id": 20
-    },
-    {
-      "name": "sprinkles",
-      "description": "a little fucker",
-      "image": "/assets/corgi.png",
-      "isFavorite": false,
       "id": 21
-    },
-    {
-      "name": "potates",
-      "description": "a fat fic kk",
-      "image": "/assets/cowardly.png",
-      "isFavorite": true,
-      "id": 22
-    },
-    {
-      "name": "asdfasdf",
-      "description": "asdfasdfasdfsdfasdfas",
-      "image": "/assets/dalmation.png",
-      "isFavorite": true,
-      "id": 24
-    },
-    {
-      "name": "dddddddd",
-      "description": "",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": true,
-      "id": 25
-    },
-    {
-      "name": "testGGGGGG",
-      "description": "triple G yo momma",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": true,
-      "id": 26
     }
   ]
 }
