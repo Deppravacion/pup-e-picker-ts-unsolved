@@ -1,15 +1,12 @@
 // you can use this type for react children if you so choose
-import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { Dog } from "../types";
-
 
 interface DogProps {
- allDogs: Dog[];
- setShowDogs: () => void;
- showDogs: string;
+  showDogs: string;
+  onClickFavDogs: () => void;
+  onClickScallyWags: () => void;
 }
-export const FunctionalSection:React.FunctionComponent<DogProps> = ({ allDogs, setShowDogs, showDogs }) => {
+export const FunctionalSection: React.FunctionComponent<DogProps> = ({ showDogs, onClickFavDogs, onClickScallyWags }) => {
 
   return (
     <section id="main-section">
@@ -20,20 +17,15 @@ export const FunctionalSection:React.FunctionComponent<DogProps> = ({ allDogs, s
         </Link>
         <div className="selectors">
           {/* This should display the favorited count */}
-          <div className={`selector ${showDogs} === 'favDogs' && 'active'`} onClick={(e) => {
-           console.log(e.target);
-           
-            // toggle active class on click, 
-            //favorite count, filter the allDogs
-          }}>
+          <div className={`selector ${showDogs === 'favDogs' && 'active'}`} onClick={() => onClickFavDogs()}>
             favorited ( 12 )
           </div>
 
           {/* This should display the unfavorited count */}
-          <div className={`selector ${showDogs} === 'favDogs' && 'active'`} onClick={() => {}}>
+          <div className={`selector ${showDogs === 'scallyWags' && 'active'}`} onClick={() => onClickScallyWags()}>
             unfavorited ( 25 )
           </div>
-          <div className={`selector`} onClick={() => {}}>
+          <div className={`selector`} onClick={() => { }}>
             create dog
           </div>
         </div>

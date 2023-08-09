@@ -11,7 +11,7 @@
       "name": "Wallace",
       "image": "/assets/cowardly.png",
       "description": "Delaware Metal Mendelevium Directives SCSI however quia knuckle",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 1
     },
     {
@@ -74,7 +74,7 @@
       "name": "Ashleigh",
       "image": "/assets/boxer.png",
       "description": "sinful virtual gray leading hollow killer program calculate",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 11
     },
     {
@@ -139,6 +139,34 @@
       "image": "/assets/OG.jpg",
       "isFavorite": true,
       "id": 21
+    },
+    {
+      "name": "655",
+      "description": "",
+      "image": "/assets/yorki.png",
+      "isFavorite": true,
+      "id": 23
+    },
+    {
+      "name": "new dog ",
+      "description": "descirpoasdfasdfsa",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 24
+    },
+    {
+      "name": "",
+      "description": "",
+      "image": "",
+      "isFavorite": true,
+      "id": 25
+    },
+    {
+      "name": "",
+      "description": "",
+      "image": "/assets/OG.jpg",
+      "isFavorite": true,
+      "id": 26
     }
   ]
 }

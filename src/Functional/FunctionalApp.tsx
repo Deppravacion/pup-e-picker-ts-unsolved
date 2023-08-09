@@ -8,37 +8,50 @@ import { Toaster, toast } from "react-hot-toast";
 
 export function FunctionalApp() {
   const [allDogs, setAllDogs] = useState<Dog[]>([])
-  const [ isLoading, setIsLoading] = useState<boolean>(false)
-  const [showDogs, setShowDogs]= useState<string>('')
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [showDogs, setShowDogs] = useState<string>('allDogs')
 
   const fetchData = () => {
     setIsLoading(true)
-      return Requests.getAllDogs()
+    return Requests.getAllDogs()
       .then((dogs) => setAllDogs(dogs))
       .finally(() => setIsLoading(false))
 
   }
 
-  const favDogs = allDogs.filter((dog) => dog.isFavorite === true )
+  const favDogs = allDogs.filter((dog) => dog.isFavorite === true)
   const scallyWags = allDogs.filter((dog) => dog.isFavorite === false)
-  
+
   const filteredDogs = (() => {
     if (showDogs === 'favDogs') {
       return favDogs
     }
-    if ( showDogs === 'scallyWags' ) {
+    if (showDogs === 'scallyWags') {
       return scallyWags
     }
     return allDogs
   })()
 
-  useEffect (() => {
+  const onClickFavDogs = () => {
+    if (showDogs === 'favDogs') {
+      return setShowDogs('allDogs')
+    }
+    return setShowDogs('favDogs')
+  }
+  const onClickScallyWags = () => {
+    if (showDogs === 'scallyWags') {
+      return setShowDogs('allDogs')
+    }
+    return setShowDogs('scallyWags')
+  }
+
+  useEffect(() => {
     const myPromise = fetchData()
-      toast.promise(myPromise, {
+    toast.promise(myPromise, {
       loading: 'Loading',
       success: 'Got the data',
       error: 'Error when fetching',
-    });  
+    });
   }, [])
 
   return (
@@ -47,22 +60,20 @@ export function FunctionalApp() {
         <h1>pup-e-picker (Functional)</h1>
       </header>
       <FunctionalSection
-      allDogs={allDogs} 
-      setShowDogs={() => setShowDogs}
-      showDogs={showDogs}
+        showDogs={showDogs}
+        onClickFavDogs={onClickFavDogs}
+        onClickScallyWags={onClickScallyWags}
+
       />
-      <FunctionalDogs 
-      allDogs={allDogs} 
-      favDogs={favDogs}
-      scallyWags={scallyWags}
-      filteredDogs={filteredDogs}
-      fetchData={fetchData}
-      isLoading={isLoading}
-      />
-      <FunctionalCreateDogForm  
-        isLoading={isLoading} 
+      <FunctionalDogs
+        filteredDogs={filteredDogs}
         fetchData={fetchData}
-        />
+        isLoading={isLoading}
+      />
+      <FunctionalCreateDogForm
+        isLoading={isLoading}
+        fetchData={fetchData}
+      />
       <Toaster />
     </div>
   );

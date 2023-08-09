@@ -3,19 +3,16 @@ import { Requests } from "../api";
 import { Dog } from "../types";
 
 interface DogProps {
-  allDogs: Dog[];
-  favDogs: Dog[];
-  scallyWags: Dog[];
-  fetchData:() => void;
+  fetchData: () => void;
   isLoading: boolean;
   filteredDogs: Dog[];
 }
-export const FunctionalDogs: React.FC<DogProps> = ( { fetchData, isLoading, filteredDogs, favDogs, scallyWags }) => {  
+export const FunctionalDogs: React.FC<DogProps> = ({ fetchData, isLoading, filteredDogs }) => {
   return (
     <>
-      { 
-        filteredDogs.map((dog:Dog) => (
-          <DogCard 
+      {
+        filteredDogs.map((dog: Dog) => (
+          <DogCard
             dog={{
               id: dog.id,
               image: dog.image,
@@ -24,16 +21,16 @@ export const FunctionalDogs: React.FC<DogProps> = ( { fetchData, isLoading, filt
               name: dog.name,
             }}
             key={dog.id}
-            onTrashIconClick={() => {            
-              Requests.deleteDog(dog.id).then(() => fetchData())                   
+            onTrashIconClick={() => {
+              Requests.deleteDog(dog.id).then(() => fetchData())
             }}
             onHeartClick={() => {
-              Requests.updateDog(dog.isFavorite,dog.id).then(() => fetchData())
+              Requests.updateDog(dog.isFavorite, dog.id).then(() => fetchData())
             }}
             onEmptyHeartClick={() => {
-              Requests.updateDog(dog.isFavorite,dog.id).then(() => fetchData())              
+              Requests.updateDog(dog.isFavorite, dog.id).then(() => fetchData())
             }}
-            isLoading={isLoading}        
+            isLoading={isLoading}
           />
         ))
       }
