@@ -1,25 +1,11 @@
 {
   "dogs": [
     {
-      "name": "Wallace",
-      "image": "/assets/cowardly.png",
-      "description": "Delaware Metal Mendelevium Directives SCSI however quia knuckle",
-      "isFavorite": false,
-      "id": 1
-    },
-    {
       "name": "Shanny",
       "image": "/assets/blue-heeler.png",
       "description": "panel Wagon damaged Androgynous Tactics benchmark even",
       "isFavorite": false,
       "id": 2
-    },
-    {
-      "name": "Fern",
-      "image": "/assets/cowardly.png",
-      "description": "ASCII Home Secured atop Unbranded Global male",
-      "isFavorite": false,
-      "id": 3
     },
     {
       "name": "Krystina",
@@ -139,6 +125,13 @@
       "image": "/assets/OG.jpg",
       "isFavorite": true,
       "id": 25
+    },
+    {
+      "name": "Josh'sDoggie",
+      "description": "this pup loves coffeeeeeee",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": true,
+      "id": 26
     }
   ]
 }

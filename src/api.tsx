@@ -58,9 +58,9 @@ export const Requests = {
       })
       await res.json()
       if (!res.ok) {
-        throw new Error('could not PATCH that dog')
+        throw new Error('could not toggle the favorite status of that dog')
       } else {
-        toast.success('Patch Success!')
+        toast.success('Favorited Status Toggled!')
       }
     } catch (error) {
       toast.error('oops there was a problem')
