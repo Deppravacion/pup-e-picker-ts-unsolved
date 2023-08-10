@@ -4,9 +4,7 @@ import { Dog } from "./types";
 export const baseUrl = "http://localhost:3000";
 
 export const Requests = {
-  getAllDogs: async (): Promise<Dog[]> => {  
-      
-  
+  getAllDogs: async (): Promise<Dog[]> => {        
     return await fetch(`${baseUrl}/dogs`).then(res => res.json())  
   }, 
   postDog: async (dog: Omit<Dog, 'id'>) => { 
@@ -37,7 +35,7 @@ export const Requests = {
       if (!res.ok) {
         throw new Error('could not delete that dog')
       } else {
-        toast.success('Patch Success!')
+        toast.success('that dog is off to the pound!')
         Requests.getAllDogs()
       }
     } catch (error) {

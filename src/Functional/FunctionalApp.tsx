@@ -62,7 +62,9 @@ export function FunctionalApp() {
         showDogs={showDogs}
         onClickFavDogs={onClickFavDogs}
         onClickScallyWags={onClickScallyWags}
-
+        allDogs={allDogs}
+        favDogs={favDogs}
+        scallyWags={scallyWags}
       />
       <FunctionalDogs
         filteredDogs={filteredDogs}

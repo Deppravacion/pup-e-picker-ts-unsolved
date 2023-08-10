@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import { dogPictures } from "../dog-pictures";
 import { Requests } from "../api";
 import { Dog } from "../types";
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const defaultDoggy = dogPictures.OG
-export const FunctionalCreateDogForm: React.FC<Props> = ({ isLoading, fetchData }) => {
+export const FunctionalCreateDogForm: React.FC<Props> = ({ isLoading, fetchData }: Props) => {
   const [inputName, setInputName] = useState<string>('')
   const [inputDescription, setInputDescription] = useState<string>('')
   const [inputPicture, setInputPicture] = useState<string>('/assets/OG.jpg')

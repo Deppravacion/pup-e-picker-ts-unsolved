@@ -1,36 +1,37 @@
 // you can use this type for react children if you so choose
 import { Link } from "react-router-dom";
+import { Dog } from "../types";
+import React from "react";
 
 interface DogProps {
   showDogs: string;
+  allDogs: Dog[];
+  favDogs: Dog[];
+  scallyWags: Dog[];
   onClickFavDogs: () => void;
   onClickScallyWags: () => void;
 }
-export const FunctionalSection: React.FunctionComponent<DogProps> = ({ showDogs, onClickFavDogs, onClickScallyWags }) => {
+export const FunctionalSection: React.FunctionComponent<DogProps> = ({ showDogs, onClickFavDogs, onClickScallyWags, allDogs, scallyWags, favDogs, }: DogProps) => {
 
   return (
     <section id="main-section">
       <div className="container-header">
-        <div className="container-label">Dogs: </div>
+        <div className="container-label">{`Dogs: ${allDogs.length} `}</div>
         <Link to={"/class"} className="btn">
           Change to Class
         </Link>
         <div className="selectors">
-          {/* This should display the favorited count */}
           <div className={`selector ${showDogs === 'favDogs' && 'active'}`} onClick={() => onClickFavDogs()}>
-            favorited ( 12 )
+            {`favorited ( ${favDogs.length} )`}
           </div>
-
-          {/* This should display the unfavorited count */}
           <div className={`selector ${showDogs === 'scallyWags' && 'active'}`} onClick={() => onClickScallyWags()}>
-            unfavorited ( 25 )
+            {`un-favorited ( ${scallyWags.length} )`}
           </div>
-          <div className={`selector`} onClick={() => { }}>
+          <a href="#create-dog-form" className="selector toForm_btn">
             create dog
-          </div>
+          </a>
         </div>
       </div>
-      <div className="content-container"></div>
     </section>
   );
 };

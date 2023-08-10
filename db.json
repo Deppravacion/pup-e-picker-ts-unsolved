@@ -1,13 +1,6 @@
 {
   "dogs": [
     {
-      "name": "Lempi",
-      "image": "/assets/corgi.png",
-      "description": "mindshare Overpass but navigating RSS quickly jaggedly",
-      "isFavorite": false,
-      "id": 0
-    },
-    {
       "name": "Wallace",
       "image": "/assets/cowardly.png",
       "description": "Delaware Metal Mendelevium Directives SCSI however quia knuckle",
@@ -39,7 +32,7 @@
       "name": "Mafalda",
       "image": "/assets/boxer.png",
       "description": "Soft Belarus olive Branding West Assistant virtual input",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 6
     },
     {
@@ -134,20 +127,6 @@
       "id": 19
     },
     {
-      "name": "OG",
-      "description": "OG OG",
-      "image": "/assets/OG.jpg",
-      "isFavorite": true,
-      "id": 21
-    },
-    {
-      "name": "655",
-      "description": "",
-      "image": "/assets/yorki.png",
-      "isFavorite": true,
-      "id": 23
-    },
-    {
       "name": "new dog ",
       "description": "descirpoasdfasdfsa",
       "image": "/assets/blue-heeler.png",
@@ -155,18 +134,11 @@
       "id": 24
     },
     {
-      "name": "",
-      "description": "",
-      "image": "",
-      "isFavorite": true,
-      "id": 25
-    },
-    {
-      "name": "",
-      "description": "",
+      "name": "OG Kush",
+      "description": "OG\nThe big red dog, world traveler",
       "image": "/assets/OG.jpg",
       "isFavorite": true,
-      "id": 26
+      "id": 25
     }
   ]
 }

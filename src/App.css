@@ -94,6 +94,16 @@ body {
   cursor: pointer;
 }
 
+.toForm_btn {
+  text-decoration: none;
+  color: black;
+}
+
+.toForm_btn:hover {
+  color: white;
+  background-color: black;
+}
+
 .selector.active {
   background-color: black;
   color: white;
@@ -130,11 +140,10 @@ body {
 
 .content-container {
   width: 100%;
+  height: max-content;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  flex: 23;
-  overflow-y: auto;
 }
 
 .dog-card {
@@ -382,3 +391,4 @@ h1 > .five,
 .ten {
   color: palevioletred;
 }
+
