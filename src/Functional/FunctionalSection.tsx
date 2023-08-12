@@ -1,37 +1,77 @@
 // you can use this type for react children if you so choose
-import { Link } from "react-router-dom";
 import { Dog } from "../types";
 import React from "react";
+import { SectionLayout } from "./layouts/SectionLayout";
+import { FunctionalDogs } from "./FunctionalDogs";
+import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
 
 interface DogProps {
-  showDogs: string;
   allDogs: Dog[];
   favDogs: Dog[];
-  scallyWags: Dog[];
+  notFavDogs: Dog[];
+  showDogs: string;
+  filteredDogs: Dog[];
+  createDogFormActive: boolean;
+  isLoading: boolean;
   onClickFavDogs: () => void;
-  onClickScallyWags: () => void;
+  onClickNotFavDogs: () => void;
+  onClickDogFormToggle: () => void;
+  fetchData: () => void;
 }
-export const FunctionalSection: React.FunctionComponent<DogProps> = ({ showDogs, onClickFavDogs, onClickScallyWags, allDogs, scallyWags, favDogs, }: DogProps) => {
-
+export const FunctionalSection: React.FunctionComponent<DogProps> = ({
+  allDogs,
+  favDogs,
+  showDogs,
+  notFavDogs,
+  filteredDogs,
+  isLoading,
+  onClickFavDogs,
+  onClickNotFavDogs,
+  onClickDogFormToggle,
+  createDogFormActive,
+  fetchData,
+}: DogProps) => {
   return (
     <section id="main-section">
       <div className="container-header">
         <div className="container-label">{`Dogs: ${allDogs.length} `}</div>
-        <Link to={"/class"} className="btn">
-          Change to Class
-        </Link>
         <div className="selectors">
-          <div className={`selector ${showDogs === 'favDogs' && 'active'}`} onClick={() => onClickFavDogs()}>
+          <div
+            className={`selector ${showDogs === "favDogs" && "active"}`}
+            onClick={() => onClickFavDogs()}
+          >
             {`favorited ( ${favDogs.length} )`}
           </div>
-          <div className={`selector ${showDogs === 'scallyWags' && 'active'}`} onClick={() => onClickScallyWags()}>
-            {`un-favorited ( ${scallyWags.length} )`}
+          <div
+            className={`selector ${showDogs === "notFavDogs" && "active"}`}
+            onClick={() => onClickNotFavDogs()}
+          >
+            {`un-favorited ( ${notFavDogs.length} )`}
           </div>
-          <a href="#create-dog-form" className="selector toForm_btn">
-            create dog
-          </a>
+          <div
+            className="selector toForm_btn"
+            onClick={() => onClickDogFormToggle()}
+          >
+            {`create dog`}
+          </div>
         </div>
       </div>
+      <SectionLayout>
+        {!createDogFormActive && (
+          <FunctionalDogs
+            filteredDogs={filteredDogs}
+            fetchData={fetchData}
+            isLoading={isLoading}
+          />
+        )}
+        {createDogFormActive && (
+          <FunctionalCreateDogForm
+            fetchData={fetchData}
+            isLoading={isLoading}
+            onClickDogFormToggle={onClickDogFormToggle}
+          />
+        )}
+      </SectionLayout>
     </section>
   );
 };

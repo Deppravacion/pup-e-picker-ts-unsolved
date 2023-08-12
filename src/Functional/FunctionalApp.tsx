@@ -1,57 +1,56 @@
-import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
-import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalSection } from "./FunctionalSection";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { Dog } from "../types";
 import { Requests } from "../api";
 import { Toaster, toast } from "react-hot-toast";
 
 export function FunctionalApp() {
-  const [allDogs, setAllDogs] = useState<Dog[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [showDogs, setShowDogs] = useState<string>('allDogs')
+  const [allDogs, setAllDogs] = useState<Dog[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showDogs, setShowDogs] = useState<string>("allDogs");
+  const [createDogFormActive, setCreateDogFormActive] = useState(false);
 
   const fetchData = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     return Requests.getAllDogs()
       .then((dogs) => setAllDogs(dogs))
-      .finally(() => setIsLoading(false))
-  }
+      .finally(() => setIsLoading(false));
+  };
 
-  const favDogs = allDogs.filter((dog) => dog.isFavorite === true)
-  const scallyWags = allDogs.filter((dog) => dog.isFavorite === false)
+  const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
+  const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
 
   const filteredDogs = (() => {
-    if (showDogs === 'favDogs') {
-      return favDogs
+    if (showDogs === "favDogs") {
+      return favDogs;
     }
-    if (showDogs === 'scallyWags') {
-      return scallyWags
+    if (showDogs === "notFavDogs") {
+      return notFavDogs;
     }
-    return allDogs
-  })()
-
+    return allDogs;
+  })();
   const onClickFavDogs = () => {
-    if (showDogs === 'favDogs') {
-      return setShowDogs('allDogs')
+    if (showDogs === "favDogs") {
+      return setShowDogs("allDogs");
     }
-    return setShowDogs('favDogs')
-  }
-  const onClickScallyWags = () => {
-    if (showDogs === 'scallyWags') {
-      return setShowDogs('allDogs')
+    return setShowDogs("favDogs");
+  };
+  const onClickNotFavDogs = () => {
+    if (showDogs === "notFavDogs") {
+      return setShowDogs("allDogs");
     }
-    return setShowDogs('scallyWags')
-  }
+    return setShowDogs("notFavDogs");
+  };
+  const onClickDogFormToggle = () => setCreateDogFormActive(!createDogFormActive);
 
   useEffect(() => {
-    const myPromise = fetchData()
+    const myPromise = fetchData();
     toast.promise(myPromise, {
-      loading: 'Loading',
-      success: 'Got the data',
-      error: 'Error when fetching',
+      loading: "Loading",
+      success: "Got the data",
+      error: "Error when fetching",
     });
-  }, [])
+  }, []);
 
   return (
     <div className="App" style={{ backgroundColor: "skyblue" }}>
@@ -61,19 +60,15 @@ export function FunctionalApp() {
       <FunctionalSection
         showDogs={showDogs}
         onClickFavDogs={onClickFavDogs}
-        onClickScallyWags={onClickScallyWags}
+        onClickNotFavDogs={onClickNotFavDogs}
+        onClickDogFormToggle={onClickDogFormToggle}
         allDogs={allDogs}
         favDogs={favDogs}
-        scallyWags={scallyWags}
-      />
-      <FunctionalDogs
+        notFavDogs={notFavDogs}
         filteredDogs={filteredDogs}
         fetchData={fetchData}
         isLoading={isLoading}
-      />
-      <FunctionalCreateDogForm
-        isLoading={isLoading}
-        fetchData={fetchData}
+        createDogFormActive={createDogFormActive}
       />
       <Toaster />
     </div>
