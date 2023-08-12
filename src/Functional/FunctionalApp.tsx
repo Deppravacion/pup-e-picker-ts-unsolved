@@ -17,6 +17,7 @@ export function FunctionalApp() {
       .finally(() => setIsLoading(false));
   };
 
+
   const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
   const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
 
