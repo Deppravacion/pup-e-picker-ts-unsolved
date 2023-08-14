@@ -4,31 +4,61 @@ import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
 import { useDogFormActive } from "../store/useDogFormActive";
+import { useAllDogsStore } from "../store/useAllDogsStore";
+import { useShowDogsStore } from "../store/useShowDogStore";
 
 
 interface DogProps {
-  allDogs: Dog[];
-  favDogs: Dog[];
-  notFavDogs: Dog[];
-  showDogs: string;
-  filteredDogs: Dog[];
-  onClickFavDogs: () => void;
-  onClickNotFavDogs: () => void;
+  // allDogs: Dog[];
+  // favDogs: Dog[];
+  // notFavDogs: Dog[];
+  // showDogs: string;
+  // filteredDogs: Dog[];
+  // onClickFavDogs: () => void;
+  // onClickNotFavDogs: () => void;
   fetchData: () => void;
 }
 export const FunctionalSection: React.FunctionComponent<DogProps> = ({
-  allDogs,
-  favDogs,
-  showDogs,
-  notFavDogs,
-  filteredDogs,
-  onClickFavDogs,
-  onClickNotFavDogs,
+  // allDogs,
+  // showDogs,
+  // favDogs,
+  // notFavDogs,
+  // filteredDogs,
+  // onClickFavDogs,
+  // onClickNotFavDogs,
   fetchData,
 }: DogProps) => {
 
   const {createDogFormActive, setCreateDogFormActive} = useDogFormActive()
- 
+  const { allDogs, setAllDogs } = useAllDogsStore()
+  const { showDogs, setShowDogs } = useShowDogsStore()
+  const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
+  const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
+
+
+  const filteredDogs = (() => {
+    if (showDogs === "favDogs") {
+      return favDogs;
+    }
+    if (showDogs === "notFavDogs") {
+      return notFavDogs;
+    }
+    return allDogs;
+  })();
+
+  const onClickFavDogs = () => {
+    if (showDogs === "favDogs") {
+      return setShowDogs("allDogs");
+    }
+    return setShowDogs("favDogs");
+  };
+  const onClickNotFavDogs = () => {
+    if (showDogs === "notFavDogs") {
+      return setShowDogs("allDogs");
+    }
+    return setShowDogs("notFavDogs");
+  };
+
   return (
     <section id="main-section">
       <div className="container-header">
