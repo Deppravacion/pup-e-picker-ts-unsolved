@@ -3,16 +3,16 @@ import { DogCard } from "../Shared/DogCard";
 import { Requests } from "../api";
 import { Dog } from "../types";
 import React from "react";
+import { useIsLoading } from "../store/useIsLoading";
 interface DogProps {
   fetchData: () => void;
-  isLoading: boolean;
   filteredDogs: Dog[];
 }
 export const FunctionalDogs: React.FunctionComponent<DogProps> = ({
   fetchData,
-  isLoading,
   filteredDogs,
 }: DogProps) => {
+  const isLoading = useIsLoading((state) => state.isLoading)
   return (
     <>
       {filteredDogs.map((dog: Dog) => (

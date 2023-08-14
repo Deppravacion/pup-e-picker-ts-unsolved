@@ -4,21 +4,21 @@
       "name": "Krystina",
       "image": "/assets/cowardly.png",
       "description": "Real for neural East platforms provident Schaden up",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 5
     },
     {
       "name": "Lucius",
       "image": "/assets/blue-heeler.png",
       "description": "experiences buzzing plum Avon indigo Pickup indigo",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 7
     },
     {
       "name": "Jarrod",
       "image": "/assets/corgi.png",
       "description": "DNS Tungsten Incredible South friendly nor aggregate",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 8
     },
     {
@@ -118,6 +118,13 @@
       "image": "/assets/OG.jpg",
       "isFavorite": true,
       "id": 28
+    },
+    {
+      "name": "zusti",
+      "description": "german stuff",
+      "image": "/assets/OG.jpg",
+      "isFavorite": true,
+      "id": 29
     }
   ]
 }

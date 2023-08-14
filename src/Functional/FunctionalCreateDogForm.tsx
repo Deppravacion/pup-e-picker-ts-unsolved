@@ -3,18 +3,20 @@ import React from "react";
 import { dogPictures } from "../dog-pictures";
 import { Requests } from "../api";
 import { Dog } from "../types";
+import { useIsLoading } from "../store/useIsLoading";
+import { useDogFormActive } from "../store/useDogFormActive";
 
 interface Props {
-  isLoading: boolean;
+  // isLoading: boolean;
   fetchData: () => void;
-  onClickDogFormToggle: () => void;
+  // onClickDogFormToggle: () => void;
 }
 
 const defaultDoggy = dogPictures.OG;
 export const FunctionalCreateDogForm: React.FC<Props> = ({
-  isLoading,
+  // isLoading,
   fetchData,
-  onClickDogFormToggle,
+  // onClickDogFormToggle,
 }: Props) => {
   const [inputName, setInputName] = useState<string>("");
   const [inputDescription, setInputDescription] = useState<string>("");
@@ -29,20 +31,20 @@ export const FunctionalCreateDogForm: React.FC<Props> = ({
     setInputName("");
     setInputDescription("");
     setInputPicture("/assets/blue-heeler.png");
-  }
+  };
+  const isLoading = useIsLoading((state) => state.isLoading)
+  // const createDogFormActive = useDogFormActive((state) => state.createDogFormActive)
+  const setCreateDogFormActive = useDogFormActive((state) => state.setCreateDogFormActive)
   return (
     <form
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
         e.preventDefault();
-        Requests.postDog(dog)
-        .then(() => fetchData())
-        onClickDogFormToggle();
-        resetInputState()
-        // setInputName("");
-        // setInputDescription("");
-        // setInputPicture("/assets/blue-heeler.png");
+        Requests.postDog(dog).then(() => fetchData());
+        // onClickDogFormToggle();
+        setCreateDogFormActive(false)
+        resetInputState();
       }}
     >
       <h4>Create a New Dog</h4>
@@ -77,10 +79,7 @@ export const FunctionalCreateDogForm: React.FC<Props> = ({
           );
         })}
       </select>
-      <input
-        type="submit"
-        disabled={isLoading}        
-      />
+      <input type="submit" disabled={isLoading} />
     </form>
   );
 };

@@ -1,14 +1,17 @@
 import { FunctionalSection } from "./FunctionalSection";
 import { useState, useEffect } from "react";
-import { Dog } from "../types";
+// import { Dog } from "../types";
 import { Requests } from "../api";
 import { Toaster, toast } from "react-hot-toast";
+import { useIsLoading } from "../store/useIsLoading";
+import { useAllDogsStore } from "../store/useAllDogsStore";
 
 export function FunctionalApp() {
-  const [allDogs, setAllDogs] = useState<Dog[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  // const [allDogs, setAllDogs] = useState<Dog[]>([]);
   const [showDogs, setShowDogs] = useState<string>("allDogs");
-  const [createDogFormActive, setCreateDogFormActive] = useState(false);
+
+  const setIsLoading = useIsLoading((state) => state.setIsLoading)
+  const { allDogs, setAllDogs } = useAllDogsStore()
 
   const fetchData = () => {
     setIsLoading(true);
@@ -42,7 +45,7 @@ export function FunctionalApp() {
     }
     return setShowDogs("notFavDogs");
   };
-  const onClickDogFormToggle = () => setCreateDogFormActive(!createDogFormActive);
+  // const onClickDogFormToggle = () => setCreateDogFormActive(!createDogFormActive);
 
   useEffect(() => {
     const myPromise = fetchData();
@@ -60,16 +63,16 @@ export function FunctionalApp() {
       </header>
       <FunctionalSection
         showDogs={showDogs}
-        onClickFavDogs={onClickFavDogs}
-        onClickNotFavDogs={onClickNotFavDogs}
-        onClickDogFormToggle={onClickDogFormToggle}
         allDogs={allDogs}
         favDogs={favDogs}
         notFavDogs={notFavDogs}
         filteredDogs={filteredDogs}
         fetchData={fetchData}
-        isLoading={isLoading}
-        createDogFormActive={createDogFormActive}
+        onClickFavDogs={onClickFavDogs}
+        onClickNotFavDogs={onClickNotFavDogs}
+        // onClickDogFormToggle={onClickDogFormToggle}
+        // isLoading={isLoading}
+        // createDogFormActive={createDogFormActive}
       />
       <Toaster />
     </div>
