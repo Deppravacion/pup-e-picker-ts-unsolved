@@ -3,16 +3,35 @@ import { DogCard } from "../Shared/DogCard";
 import { Requests } from "../api";
 import { Dog } from "../types";
 import React from "react";
+import { fetchData } from "../api";
+
 import { useIsLoading } from "../store/useIsLoading";
-interface DogProps {
-  fetchData: () => void;
-  filteredDogs: Dog[];
-}
-export const FunctionalDogs: React.FunctionComponent<DogProps> = ({
-  fetchData,
-  filteredDogs,
-}: DogProps) => {
-  const isLoading = useIsLoading((state) => state.isLoading)
+import { useAllDogsStore } from "../store/useAllDogsStore";
+import { useShowDogsStore } from "../store/useShowDogStore";
+
+export const FunctionalDogs: React.FunctionComponent = () => {
+  const { isLoading, setIsLoading } = useIsLoading();
+  const { allDogs, setAllDogs } = useAllDogsStore();
+  const { showDogs } = useShowDogsStore();
+  const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
+  const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
+
+  const filteredDogs = (() => {
+    if (showDogs === "favDogs") {
+      return favDogs;
+    }
+    if (showDogs === "notFavDogs") {
+      return notFavDogs;
+    }
+    return allDogs;
+  })();
+
+  function handleData() {
+    setIsLoading(true);
+    return fetchData()
+      .then((dogs) => setAllDogs(dogs))
+      .finally(() => setIsLoading(false));
+  }
   return (
     <>
       {filteredDogs.map((dog: Dog) => (
@@ -26,12 +45,12 @@ export const FunctionalDogs: React.FunctionComponent<DogProps> = ({
           }}
           key={dog.id}
           onTrashIconClick={() => {
-            Requests.deleteDog(dog.id).then(() => fetchData());
+            Requests.deleteDog(dog.id).then(() => handleData());
           }}
           onHeartClick={() => {
             try {
               Requests.updateDog(dog.isFavorite, dog.id).then(() =>
-                fetchData()
+                handleData()
               );
             } catch (error) {
               console.error(error);
@@ -39,7 +58,7 @@ export const FunctionalDogs: React.FunctionComponent<DogProps> = ({
             }
           }}
           onEmptyHeartClick={() => {
-            Requests.updateDog(dog.isFavorite, dog.id).then(() => fetchData());
+            Requests.updateDog(dog.isFavorite, dog.id).then(() => handleData());
           }}
           isLoading={isLoading}
         />

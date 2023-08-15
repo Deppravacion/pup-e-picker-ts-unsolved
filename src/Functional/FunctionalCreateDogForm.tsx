@@ -5,19 +5,10 @@ import { Requests } from "../api";
 import { Dog } from "../types";
 import { useIsLoading } from "../store/useIsLoading";
 import { useDogFormActive } from "../store/useDogFormActive";
-
-interface Props {
-  // isLoading: boolean;
-  fetchData: () => void;
-  // onClickDogFormToggle: () => void;
-}
+import { fetchData } from "../api";
 
 const defaultDoggy = dogPictures.OG;
-export const FunctionalCreateDogForm: React.FC<Props> = ({
-  // isLoading,
-  fetchData,
-  // onClickDogFormToggle,
-}: Props) => {
+export const FunctionalCreateDogForm: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
   const [inputDescription, setInputDescription] = useState<string>("");
   const [inputPicture, setInputPicture] = useState<string>("/assets/OG.jpg");
@@ -32,9 +23,10 @@ export const FunctionalCreateDogForm: React.FC<Props> = ({
     setInputDescription("");
     setInputPicture("/assets/blue-heeler.png");
   };
-  const isLoading = useIsLoading((state) => state.isLoading)
-  // const createDogFormActive = useDogFormActive((state) => state.createDogFormActive)
-  const setCreateDogFormActive = useDogFormActive((state) => state.setCreateDogFormActive)
+  const isLoading = useIsLoading((state) => state.isLoading);
+  const setCreateDogFormActive = useDogFormActive(
+    (state) => state.setCreateDogFormActive
+  );
   return (
     <form
       action=""
@@ -42,8 +34,7 @@ export const FunctionalCreateDogForm: React.FC<Props> = ({
       onSubmit={(e) => {
         e.preventDefault();
         Requests.postDog(dog).then(() => fetchData());
-        // onClickDogFormToggle();
-        setCreateDogFormActive(false)
+        setCreateDogFormActive(false);
         resetInputState();
       }}
     >

@@ -1,5 +1,4 @@
 import React from "react";
-import { Dog } from "../types";
 import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
@@ -7,44 +6,12 @@ import { useDogFormActive } from "../store/useDogFormActive";
 import { useAllDogsStore } from "../store/useAllDogsStore";
 import { useShowDogsStore } from "../store/useShowDogStore";
 
-
-interface DogProps {
-  // allDogs: Dog[];
-  // favDogs: Dog[];
-  // notFavDogs: Dog[];
-  // showDogs: string;
-  // filteredDogs: Dog[];
-  // onClickFavDogs: () => void;
-  // onClickNotFavDogs: () => void;
-  fetchData: () => void;
-}
-export const FunctionalSection: React.FunctionComponent<DogProps> = ({
-  // allDogs,
-  // showDogs,
-  // favDogs,
-  // notFavDogs,
-  // filteredDogs,
-  // onClickFavDogs,
-  // onClickNotFavDogs,
-  fetchData,
-}: DogProps) => {
-
-  const {createDogFormActive, setCreateDogFormActive} = useDogFormActive()
-  const { allDogs, setAllDogs } = useAllDogsStore()
-  const { showDogs, setShowDogs } = useShowDogsStore()
+export const FunctionalSection: React.FunctionComponent = () => {
+  const { createDogFormActive, setCreateDogFormActive } = useDogFormActive();
+  const { allDogs } = useAllDogsStore();
+  const { showDogs, setShowDogs } = useShowDogsStore();
   const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
   const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
-
-
-  const filteredDogs = (() => {
-    if (showDogs === "favDogs") {
-      return favDogs;
-    }
-    if (showDogs === "notFavDogs") {
-      return notFavDogs;
-    }
-    return allDogs;
-  })();
 
   const onClickFavDogs = () => {
     if (showDogs === "favDogs") {
@@ -87,15 +54,10 @@ export const FunctionalSection: React.FunctionComponent<DogProps> = ({
       <SectionLayout>
         {!createDogFormActive && (
           <FunctionalDogs
-            filteredDogs={filteredDogs}
-            fetchData={fetchData}
+          // filteredDogs={filteredDogs}
           />
         )}
-        {createDogFormActive && (
-          <FunctionalCreateDogForm
-            fetchData={fetchData}
-          />
-        )}
+        {createDogFormActive && <FunctionalCreateDogForm />}
       </SectionLayout>
     </section>
   );
