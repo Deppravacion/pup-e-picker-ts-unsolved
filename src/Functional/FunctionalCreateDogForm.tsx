@@ -8,7 +8,6 @@ import { useAllDogsStore } from "../store/useAllDogsStore";
 import { useIsFormActiveStore } from "../store/useIsFormActiveStore";
 import { toast } from "react-hot-toast";
 
-// const defaultDoggy = dogPictures.OG;
 export const FunctionalCreateDogForm: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
   const [inputDescription, setInputDescription] = useState<string>("");
@@ -26,7 +25,7 @@ export const FunctionalCreateDogForm: React.FC = () => {
     setInputPicture("/assets/blue-heeler.png");
   };
   const isLoading = useIsLoadingStore((state) => state.isLoading);
-  const { setIsFormActive } = useIsFormActiveStore()
+  const { setIsFormActive } = useIsFormActiveStore();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const newDogs = [...allDogs];
@@ -46,10 +45,6 @@ export const FunctionalCreateDogForm: React.FC = () => {
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
-        // e.preventDefault();
-        // Requests.postDog(dog).then(() => fetchData());
-        // setCreateDogFormActive(false);
-        // resetInputState();
         handleSubmit(e);
       }}
     >

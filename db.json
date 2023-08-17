@@ -8,13 +8,6 @@
       "id": 14
     },
     {
-      "name": "Alysson",
-      "image": "/assets/blue-heeler.png",
-      "description": "ASCII grey excluding Van deposit wireless West District",
-      "isFavorite": false,
-      "id": 15
-    },
-    {
       "name": "Enid",
       "image": "/assets/blue-heeler.png",
       "description": "Cargo Van SCSI oh scale",
@@ -69,6 +62,27 @@
       "image": "/assets/OG.jpg",
       "isFavorite": true,
       "id": 23
+    },
+    {
+      "name": "useEfffctC:LOP",
+      "description": "dasfgsadfsadfsafsadfsadfdd",
+      "image": "/assets/chihuahua.avif",
+      "isFavorite": true,
+      "id": 24
+    },
+    {
+      "name": "pepper pep",
+      "description": "spicy",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 25
+    },
+    {
+      "name": "sdf",
+      "description": "sdf",
+      "image": "/assets/OG.jpg",
+      "isFavorite": true,
+      "id": 26
     }
   ]
 }

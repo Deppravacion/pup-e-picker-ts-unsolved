@@ -1,16 +1,15 @@
 import { toast } from "react-hot-toast";
 import { DogCard } from "../Shared/DogCard";
-import { OptimisticRequests} from "../api";
+import { OptimisticRequests } from "../api";
 import { Dog } from "../types";
 import React from "react";
-// import { fetchData } from "../api";
 import { useIsLoadingStore } from "../store/useIsLoadingStore";
 import { useAllDogsStore } from "../store/useAllDogsStore";
 import { useShowDogsStore } from "../store/useShowDogStore";
 
 export const FunctionalDogs: React.FunctionComponent = () => {
-  const { isLoading} = useIsLoadingStore();
   const { allDogs, setAllDogs } = useAllDogsStore();
+  const { isLoading } = useIsLoadingStore();
   const { showDogs } = useShowDogsStore();
   const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
   const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
@@ -25,13 +24,6 @@ export const FunctionalDogs: React.FunctionComponent = () => {
     return allDogs;
   })();
 
-  // function handleData() {
-  //   setIsLoading(true);
-  //   return fetchData()
-  //     .then((dogs) => setAllDogs(dogs))
-  //     .finally(() => setIsLoading(false));
-  // }
-
   function removeFavorite(dogId: number) {
     setAllDogs(
       allDogs.map((dog) =>
@@ -41,7 +33,7 @@ export const FunctionalDogs: React.FunctionComponent = () => {
     OptimisticRequests.updateDog(true, dogId).then((response) => {
       if (!response.ok) {
         setAllDogs(allDogs);
-        toast.error('error');
+        toast.error("error");
         console.log(response.ok);
       } else return;
     });
@@ -55,21 +47,19 @@ export const FunctionalDogs: React.FunctionComponent = () => {
     OptimisticRequests.updateDog(false, dogId).then((response) => {
       if (!response.ok) {
         setAllDogs(allDogs);
-        toast.error('error');
+        toast.error("error");
       } else return;
     });
   }
 
   function removeDog(dogId: number) {
-    setAllDogs(
-      allDogs.filter((dog) => dog.id != dogId)
-    );
+    setAllDogs(allDogs.filter((dog) => dog.id != dogId));
     OptimisticRequests.deleteDog(dogId).then((response) => {
       if (!response.ok) {
-        setAllDogs(allDogs)
-        toast.error('error')
-      } else return
-    })
+        setAllDogs(allDogs);
+        toast.error("error");
+      } else return;
+    });
   }
   return (
     <>
@@ -84,23 +74,13 @@ export const FunctionalDogs: React.FunctionComponent = () => {
           }}
           key={dog.id}
           onTrashIconClick={() => {
-            // Requests.deleteDog(dog.id).then(() => handleData());
-            removeDog(dog.id)
+            removeDog(dog.id);
           }}
           onHeartClick={() => {
             removeFavorite(dog.id);
-            // try { // refactoring this commented code into favoriteLogic()
-            //   Requests.updateDog(dog.isFavorite, dog.id).then(() =>
-            //     handleData()
-            //   );
-            // } catch (error) {
-            //   console.error(error);
-            //   toast.error("error");
-            // }
           }}
           onEmptyHeartClick={() => {
-            // Requests.updateDog(dog.isFavorite, dog.id).then(() => handleData());
-            addFavorite(dog.id)
+            addFavorite(dog.id);
           }}
           isLoading={isLoading}
         />

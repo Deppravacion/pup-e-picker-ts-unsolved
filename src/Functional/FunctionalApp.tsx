@@ -4,11 +4,12 @@ import { Toaster, toast } from "react-hot-toast";
 import { useIsLoadingStore } from "../store/useIsLoadingStore";
 import { useAllDogsStore } from "../store/useAllDogsStore";
 import { fetchData } from "../api";
+import { useIsFormActiveStore } from "../store/useIsFormActiveStore";
 
 export function FunctionalApp() {
   const setIsLoading = useIsLoadingStore((state) => state.setIsLoading);
   const { setAllDogs } = useAllDogsStore();
-
+  const { isFormActive } = useIsFormActiveStore();
   useEffect(() => {
     const myPromise = handleData();
     toast.promise(myPromise, {
@@ -16,7 +17,7 @@ export function FunctionalApp() {
       success: "Got the data",
       error: "Error when fetching",
     });
-  }, []);
+  }, [isFormActive]);
 
   function handleData() {
     setIsLoading(true);
