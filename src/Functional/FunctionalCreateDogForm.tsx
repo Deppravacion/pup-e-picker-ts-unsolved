@@ -1,17 +1,19 @@
 import { useState } from "react";
 import React from "react";
 import { dogPictures } from "../dog-pictures";
-import { Requests } from "../api";
+import { OptimisticRequests } from "../api";
 import { Dog } from "../types";
 import { useIsLoadingStore } from "../store/useIsLoadingStore";
-import { useDogFormActive } from "../store/useIsDogFormActiveStore";
-import { fetchData } from "../api";
+import { useAllDogsStore } from "../store/useAllDogsStore";
+import { useIsFormActiveStore } from "../store/useIsFormActiveStore";
+import { toast } from "react-hot-toast";
 
-const defaultDoggy = dogPictures.OG;
+// const defaultDoggy = dogPictures.OG;
 export const FunctionalCreateDogForm: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
   const [inputDescription, setInputDescription] = useState<string>("");
   const [inputPicture, setInputPicture] = useState<string>("/assets/OG.jpg");
+  const { allDogs, setAllDogs } = useAllDogsStore();
   const dog: Omit<Dog, "id"> = {
     name: inputName,
     description: inputDescription,
@@ -24,18 +26,31 @@ export const FunctionalCreateDogForm: React.FC = () => {
     setInputPicture("/assets/blue-heeler.png");
   };
   const isLoading = useIsLoadingStore((state) => state.isLoading);
-  const setCreateDogFormActive = useDogFormActive(
-    (state) => state.setCreateDogFormActive
-  );
+  const { setIsFormActive } = useIsFormActiveStore()
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const newDogs = [...allDogs];
+    setAllDogs(newDogs);
+    OptimisticRequests.postDog(dog).then((response) => {
+      resetInputState();
+      setIsFormActive(false);
+      if (!response.ok) {
+        setIsFormActive(true);
+        setAllDogs(allDogs);
+        toast.error("error");
+      }
+    });
+  }
   return (
     <form
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
-        e.preventDefault();
-        Requests.postDog(dog).then(() => fetchData());
-        setCreateDogFormActive(false);
-        resetInputState();
+        // e.preventDefault();
+        // Requests.postDog(dog).then(() => fetchData());
+        // setCreateDogFormActive(false);
+        // resetInputState();
+        handleSubmit(e);
       }}
     >
       <h4>Create a New Dog</h4>
@@ -60,7 +75,7 @@ export const FunctionalCreateDogForm: React.FC = () => {
       <select
         id=""
         onChange={(e) => setInputPicture(e.target.value)}
-        value={defaultDoggy}
+        value={inputPicture}
       >
         {Object.entries(dogPictures).map(([label, pictureValue]) => {
           return (

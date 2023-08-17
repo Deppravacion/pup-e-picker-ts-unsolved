@@ -2,17 +2,15 @@ import React from "react";
 import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
-import { useDogFormActive } from "../store/useIsDogFormActiveStore";
 import { useAllDogsStore } from "../store/useAllDogsStore";
 import { useShowDogsStore } from "../store/useShowDogStore";
-
+import { useIsFormActiveStore } from "../store/useIsFormActiveStore";
 export const FunctionalSection: React.FunctionComponent = () => {
-  const { createDogFormActive, setCreateDogFormActive } = useDogFormActive();
   const { allDogs } = useAllDogsStore();
   const { showDogs, setShowDogs } = useShowDogsStore();
   const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
   const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
-
+  const { isFormActive, setIsFormActive } = useIsFormActiveStore();
   const onClickFavDogs = () => {
     if (showDogs === "favDogs") {
       return setShowDogs("allDogs");
@@ -29,11 +27,12 @@ export const FunctionalSection: React.FunctionComponent = () => {
   return (
     <section id="main-section">
       <div className="container-header">
-        <div className="container-label">{`Dogs: ${showDogs === 'favDogs' 
-        ? favDogs.length 
-        : showDogs === 'notFavDogs' 
-        ? notFavDogs.length 
-        : allDogs.length 
+        <div className="container-label">{`Dogs: ${
+          showDogs === "favDogs"
+            ? favDogs.length
+            : showDogs === "notFavDogs"
+            ? notFavDogs.length
+            : allDogs.length
         } `}</div>
         <div className="selectors">
           <div
@@ -50,19 +49,15 @@ export const FunctionalSection: React.FunctionComponent = () => {
           </div>
           <div
             className="selector toForm_btn"
-            onClick={() => setCreateDogFormActive(!createDogFormActive)}
+            onClick={() => setIsFormActive(!isFormActive)}
           >
             {`create dog`}
           </div>
         </div>
       </div>
       <SectionLayout>
-        {!createDogFormActive && (
-          <FunctionalDogs
-          // filteredDogs={filteredDogs}
-          />
-        )}
-        {createDogFormActive && <FunctionalCreateDogForm />}
+        {!isFormActive && <FunctionalDogs />}
+        {isFormActive && <FunctionalCreateDogForm />}
       </SectionLayout>
     </section>
   );

@@ -1,1 +1,74 @@
-{"dogs":[{"name":"Yasmin","image":"/assets/blue-heeler.png","description":"Funk Shores Account user Bicycle","isFavorite":true,"id":0},{"name":"Oda","image":"/assets/dalmation.png","description":"Bronze Fresh enterprise East Michigan Gasoline Polestar","isFavorite":false,"id":1},{"name":"Lionel","image":"/assets/dalmation.png","description":"Trinidad Mathew Extended Lutetium Chief minion Massachusetts","isFavorite":true,"id":2},{"name":"Diego","image":"/assets/dalmation.png","description":"darn payment Southeast North Lead","isFavorite":true,"id":3},{"name":"Jarret","image":"/assets/dalmation.png","description":"glamorous Potassium West Dale olive","isFavorite":false,"id":4},{"name":"Dandre","image":"/assets/corgi.png","description":"eject Avon expedite minus Optional","isFavorite":false,"id":5},{"name":"Gunner","image":"/assets/corgi.png","description":"cyan Paraguay connecting Malta farad Dodge Handcrafted photography","isFavorite":true,"id":6},{"name":"Alvera","image":"/assets/chihuahua.avif","description":"Soft lest Sausages Cambridgeshire Polonium","isFavorite":true,"id":7},{"name":"Jayde","image":"/assets/blue-heeler.png","description":"Concrete of Human Operations regarding Kia Hybrid Polygender","isFavorite":true,"id":8},{"name":"Adelbert","image":"/assets/chihuahua.avif","description":"Gibraltar Northeast Metal unscramble Comoros View withdrawal deposit","isFavorite":false,"id":9},{"name":"Anika","image":"/assets/dalmation.png","description":"Jewelery North under drive male why Oman Volvo","isFavorite":false,"id":10},{"name":"Ken","image":"/assets/blue-heeler.png","description":"Carbon Account Secured candela Massachusetts nobis Bentley","isFavorite":false,"id":11},{"name":"Reece","image":"/assets/blue-heeler.png","description":"whereas Western female city Bedfordshire","isFavorite":true,"id":12},{"name":"Dion","image":"/assets/dalmation.png","description":"Place RAM ick Branding Handmade bypassing Omnigender Cheese","isFavorite":false,"id":13},{"name":"Osborne","image":"/assets/dalmation.png","description":"alarm fuga Hatchback Reggae Solutions","isFavorite":true,"id":14},{"name":"Alysson","image":"/assets/blue-heeler.png","description":"ASCII grey excluding Van deposit wireless West District","isFavorite":false,"id":15},{"name":"Enid","image":"/assets/blue-heeler.png","description":"Cargo Van SCSI oh scale","isFavorite":false,"id":16},{"name":"Bradford","image":"/assets/blue-heeler.png","description":"silver Riel Fresh Southwest SUV Synchronised male","isFavorite":false,"id":17},{"name":"Maribel","image":"/assets/cowardly.png","description":"female Soft redundant Silver South","isFavorite":false,"id":18},{"name":"Frederick","image":"/assets/boxer.png","description":"Computer Dynamic ASCII Martin Pop","isFavorite":false,"id":19}]}
+{
+  "dogs": [
+    {
+      "name": "Osborne",
+      "image": "/assets/dalmation.png",
+      "description": "alarm fuga Hatchback Reggae Solutions",
+      "isFavorite": true,
+      "id": 14
+    },
+    {
+      "name": "Alysson",
+      "image": "/assets/blue-heeler.png",
+      "description": "ASCII grey excluding Van deposit wireless West District",
+      "isFavorite": false,
+      "id": 15
+    },
+    {
+      "name": "Enid",
+      "image": "/assets/blue-heeler.png",
+      "description": "Cargo Van SCSI oh scale",
+      "isFavorite": false,
+      "id": 16
+    },
+    {
+      "name": "Bradford",
+      "image": "/assets/blue-heeler.png",
+      "description": "silver Riel Fresh Southwest SUV Synchronised male",
+      "isFavorite": false,
+      "id": 17
+    },
+    {
+      "name": "Maribel",
+      "image": "/assets/cowardly.png",
+      "description": "female Soft redundant Silver South",
+      "isFavorite": false,
+      "id": 18
+    },
+    {
+      "name": "Frederick",
+      "image": "/assets/boxer.png",
+      "description": "Computer Dynamic ASCII Martin Pop",
+      "isFavorite": false,
+      "id": 19
+    },
+    {
+      "name": "testies",
+      "description": "optimistic postDog",
+      "image": "/assets/blue-heeler.png",
+      "isFavorite": true,
+      "id": 20
+    },
+    {
+      "name": "test_2",
+      "description": "antoher test",
+      "image": "/assets/cowardly.png",
+      "isFavorite": true,
+      "id": 21
+    },
+    {
+      "name": "hotdog",
+      "description": "useEffect testing alldogs.length",
+      "image": "/assets/yorki.png",
+      "isFavorite": true,
+      "id": 22
+    },
+    {
+      "name": "dog10 ",
+      "description": "does this render ",
+      "image": "/assets/OG.jpg",
+      "isFavorite": true,
+      "id": 23
+    }
+  ]
+}

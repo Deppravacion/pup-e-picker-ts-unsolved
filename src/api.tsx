@@ -46,7 +46,7 @@ export const Requests = {
   },
 };
 
-export const OptimisticRequests = { 
+export const OptimisticRequests = {
   getAllDogs: async (): Promise<Dog[]> => {
     return await fetch(`${baseUrl}/dogs`).then((res) => res.json());
   },
@@ -57,17 +57,17 @@ export const OptimisticRequests = {
   },
   updateDog: async (isFavorite: boolean, id: number) => {
     const favStatus = !isFavorite;
-    // const response = await fetch(`${baseUrl}/dogs/${id}`, {
     return await fetch(`${baseUrl}/dogs/${id}`, {
       method: "PATCH",
       body: JSON.stringify({ isFavorite: favStatus }),
       headers: jsonHeaders,
     });
-    // if (!response.ok) {
-    //   throw new Error("failed to update");
-  
-    // }
-    // return response.json();
   },
-    
-}
+  postDog: async (dog: Omit<Dog, "id">) => {
+    return await fetch(`${baseUrl}/dogs`, {
+      method: "POST",
+      body: JSON.stringify(dog),
+      headers: jsonHeaders,
+    });
+  },
+};
