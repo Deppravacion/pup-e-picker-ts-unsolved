@@ -3,8 +3,8 @@ import React from "react";
 import { dogPictures } from "../dog-pictures";
 import { Requests } from "../api";
 import { Dog } from "../types";
-import { useIsLoading } from "../store/useIsLoading";
-import { useDogFormActive } from "../store/useDogFormActive";
+import { useIsLoadingStore } from "../store/useIsLoadingStore";
+import { useDogFormActive } from "../store/useIsDogFormActiveStore";
 import { fetchData } from "../api";
 
 const defaultDoggy = dogPictures.OG;
@@ -23,7 +23,7 @@ export const FunctionalCreateDogForm: React.FC = () => {
     setInputDescription("");
     setInputPicture("/assets/blue-heeler.png");
   };
-  const isLoading = useIsLoading((state) => state.isLoading);
+  const isLoading = useIsLoadingStore((state) => state.isLoading);
   const setCreateDogFormActive = useDogFormActive(
     (state) => state.setCreateDogFormActive
   );

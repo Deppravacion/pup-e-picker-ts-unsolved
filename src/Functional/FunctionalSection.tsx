@@ -2,7 +2,7 @@ import React from "react";
 import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
-import { useDogFormActive } from "../store/useDogFormActive";
+import { useDogFormActive } from "../store/useIsDogFormActiveStore";
 import { useAllDogsStore } from "../store/useAllDogsStore";
 import { useShowDogsStore } from "../store/useShowDogStore";
 
@@ -29,7 +29,12 @@ export const FunctionalSection: React.FunctionComponent = () => {
   return (
     <section id="main-section">
       <div className="container-header">
-        <div className="container-label">{`Dogs: ${allDogs.length} `}</div>
+        <div className="container-label">{`Dogs: ${showDogs === 'favDogs' 
+        ? favDogs.length 
+        : showDogs === 'notFavDogs' 
+        ? notFavDogs.length 
+        : allDogs.length 
+        } `}</div>
         <div className="selectors">
           <div
             className={`selector ${showDogs === "favDogs" && "active"}`}

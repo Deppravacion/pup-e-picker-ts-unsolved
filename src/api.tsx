@@ -45,3 +45,29 @@ export const Requests = {
     return response.json();
   },
 };
+
+export const OptimisticRequests = { 
+  getAllDogs: async (): Promise<Dog[]> => {
+    return await fetch(`${baseUrl}/dogs`).then((res) => res.json());
+  },
+  deleteDog: async (id: number) => {
+    return await fetch(`${baseUrl}/dogs/${id}`, {
+      method: "DELETE",
+    });
+  },
+  updateDog: async (isFavorite: boolean, id: number) => {
+    const favStatus = !isFavorite;
+    // const response = await fetch(`${baseUrl}/dogs/${id}`, {
+    return await fetch(`${baseUrl}/dogs/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ isFavorite: favStatus }),
+      headers: jsonHeaders,
+    });
+    // if (!response.ok) {
+    //   throw new Error("failed to update");
+  
+    // }
+    // return response.json();
+  },
+    
+}

@@ -1,12 +1,12 @@
 import { FunctionalSection } from "./FunctionalSection";
 import { useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { useIsLoading } from "../store/useIsLoading";
+import { useIsLoadingStore } from "../store/useIsLoadingStore";
 import { useAllDogsStore } from "../store/useAllDogsStore";
 import { fetchData } from "../api";
 
 export function FunctionalApp() {
-  const setIsLoading = useIsLoading((state) => state.setIsLoading);
+  const setIsLoading = useIsLoadingStore((state) => state.setIsLoading);
   const { setAllDogs } = useAllDogsStore();
 
   useEffect(() => {
