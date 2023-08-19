@@ -5,7 +5,8 @@ import { Requests } from "../api";
 import { Dog } from "../types";
 import { useIsLoadingStore } from "../store/useIsLoadingStore";
 import { useAllDogsStore } from "../store/useAllDogsStore";
-import { useIsFormActiveStore } from "../store/useIsFormActiveStore";
+import { useTheDogStore } from "../store/useTheDogStore";
+// import { useIsFormActiveStore } from "../store/useIsFormActiveStore";
 import { toast } from "react-hot-toast";
 
 export const FunctionalCreateDogForm: React.FC = () => {
@@ -13,6 +14,7 @@ export const FunctionalCreateDogForm: React.FC = () => {
   const [inputDescription, setInputDescription] = useState<string>("");
   const [inputPicture, setInputPicture] = useState<string>("/assets/OG.jpg");
   const { allDogs, setAllDogs } = useAllDogsStore();
+  const { setIsFormActive } = useTheDogStore()
   const dog: Omit<Dog, "id"> = {
     name: inputName,
     description: inputDescription,
@@ -25,7 +27,7 @@ export const FunctionalCreateDogForm: React.FC = () => {
     setInputPicture("/assets/blue-heeler.png");
   };
   const isLoading = useIsLoadingStore((state) => state.isLoading);
-  const { setIsFormActive } = useIsFormActiveStore();
+  // const { setIsFormActive } = useIsFormActiveStore();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const newDogs = [...allDogs];

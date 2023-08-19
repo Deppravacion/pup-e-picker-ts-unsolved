@@ -1,15 +1,12 @@
-import { FunctionalSection } from "./FunctionalSection";
 import { useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { useIsLoadingStore } from "../store/useIsLoadingStore";
-import { useAllDogsStore } from "../store/useAllDogsStore";
-import { fetchData } from "../api";
-import { useIsFormActiveStore } from "../store/useIsFormActiveStore";
+import { FunctionalSection } from "./FunctionalSection";
+import { useTheDogStore } from "../store/useTheDogStore";
+import { fetchData } from "./utils/utilities";
 
 export function FunctionalApp() {
-  const setIsLoading = useIsLoadingStore((state) => state.setIsLoading);
-  const { setAllDogs } = useAllDogsStore();
-  const { isFormActive } = useIsFormActiveStore();
+  const { isFormActive, setIsLoading, setAllDogs  } = useTheDogStore();
+
   useEffect(() => {
     const myPromise = handleData();
     toast.promise(myPromise, {
@@ -18,7 +15,7 @@ export function FunctionalApp() {
       error: "Error when fetching",
     });
   }, [isFormActive]);
-
+  
   function handleData() {
     setIsLoading(true);
     return fetchData()
@@ -30,7 +27,7 @@ export function FunctionalApp() {
     <div className="App" style={{ backgroundColor: "skyblue" }}>
       <header>
         <h1>pup-e-picker (Functional)</h1>
-      </header>
+      </header>  
       <FunctionalSection />
       <Toaster />
     </div>

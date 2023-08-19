@@ -5,24 +5,42 @@ import { Requests } from "../api";
 interface DogStore {
   isLoading: boolean;
   allDogs: Dog[];
-  showDogs: string;
+  activeTab: string;
+  isFormActive: boolean;
+  setIsLoading: (by: boolean) => void;
+  setIsFormActive: (by: boolean) => void;
   setAllDogs: (by: Dog[]) => void;
-  setShowDogs: (by: string) => void;
+  setActiveTab: (by: string) => void;
   createDog: (dog: Omit<Dog, "id">) => void;
-  deleteDog: (dogId: number) => void;
+  getDogs: () => void;
   updateDog: (dogId: number, key: boolean) => void;
-  getDogs: () => void
+  deleteDog: (dogId: number) => void;
 }
 
-export const useAllDogsStore = create<DogStore>()((set) => ({
+export const useTheDogStore = create<DogStore>()((set) => ({
   allDogs: [],
   isLoading: false,
-  showDogs: "allDogs",
+  isFormActive: false,
+  activeTab: "allDogs",
+  setIsFormActive: (by) => set(() => ({ isFormActive: by })),
   setAllDogs: (by) => set(() => ({ allDogs: by })),
-  setShowDogs: (by) => set(() => ({ showDogs: by })),
+  setActiveTab: (by) => set(() => ({ activeTab: by })),
   createDog: (dog) => {
     set({ isLoading: true });
     Requests.postDog(dog).finally(() => {
+      set({ isLoading: false });
+    });
+  },
+  setIsLoading: (by) => ({ isLoading: by }),
+  getDogs: () => {
+    set({ isLoading: true });
+    Requests.getAllDogs().finally(() => {
+      set({ isLoading: false });
+    });
+  },
+  updateDog: (dogId, key) => {
+    set({ isLoading: true });
+    Requests.updateDog(dogId, key).finally(() => {
       set({ isLoading: false });
     });
   },
@@ -31,17 +49,5 @@ export const useAllDogsStore = create<DogStore>()((set) => ({
     Requests.deleteDog(dog).finally(() => {
       set({ isLoading: false });
     });
-  }, 
-  updateDog: (dogId, key) => {
-    set({ isLoading: true });
-    Requests.updateDog(dogId, key).finally(() => {
-      set({ isLoading: false });
-    });    
   },
-  getDogs: () => {
-    set({ isLoading: true });
-    Requests.getAllDogs().finally(() => {
-      set({ isLoading: false });
-    });
-  }
 }));
