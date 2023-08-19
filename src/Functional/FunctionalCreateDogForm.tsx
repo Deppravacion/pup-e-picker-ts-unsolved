@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import { dogPictures } from "../dog-pictures";
-import { OptimisticRequests } from "../api";
+import { Requests } from "../api";
 import { Dog } from "../types";
 import { useIsLoadingStore } from "../store/useIsLoadingStore";
 import { useAllDogsStore } from "../store/useAllDogsStore";
@@ -30,7 +30,7 @@ export const FunctionalCreateDogForm: React.FC = () => {
     e.preventDefault();
     const newDogs = [...allDogs];
     setAllDogs(newDogs);
-    OptimisticRequests.postDog(dog).then((response) => {
+    Requests.postDog(dog).then((response) => {
       resetInputState();
       setIsFormActive(false);
       if (!response.ok) {

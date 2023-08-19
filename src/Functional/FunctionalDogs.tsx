@@ -1,6 +1,6 @@
 import { toast } from "react-hot-toast";
 import { DogCard } from "../Shared/DogCard";
-import { OptimisticRequests } from "../api";
+import { Requests } from "../api";
 import { Dog } from "../types";
 import React from "react";
 import { useIsLoadingStore } from "../store/useIsLoadingStore";
@@ -30,7 +30,7 @@ export const FunctionalDogs: React.FunctionComponent = () => {
         dog.id === dogId ? { ...dog, isFavorite: false } : dog
       )
     );
-    OptimisticRequests.updateDog(true, dogId).then((response) => {
+    Requests.updateDog(dogId, true).then((response) => {
       if (!response.ok) {
         setAllDogs(allDogs);
         toast.error("error");
@@ -44,7 +44,7 @@ export const FunctionalDogs: React.FunctionComponent = () => {
         dog.id === dogId ? { ...dog, isFavorite: true } : dog
       )
     );
-    OptimisticRequests.updateDog(false, dogId).then((response) => {
+    Requests.updateDog(dogId, false).then((response) => {
       if (!response.ok) {
         setAllDogs(allDogs);
         toast.error("error");
@@ -54,7 +54,7 @@ export const FunctionalDogs: React.FunctionComponent = () => {
 
   function removeDog(dogId: number) {
     setAllDogs(allDogs.filter((dog) => dog.id != dogId));
-    OptimisticRequests.deleteDog(dogId).then((response) => {
+    Requests.deleteDog(dogId).then((response) => {
       if (!response.ok) {
         setAllDogs(allDogs);
         toast.error("error");

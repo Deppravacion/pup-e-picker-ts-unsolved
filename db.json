@@ -1,88 +1,137 @@
 {
   "dogs": [
     {
-      "name": "Osborne",
-      "image": "/assets/dalmation.png",
-      "description": "alarm fuga Hatchback Reggae Solutions",
+      "name": "River",
+      "image": "/assets/blue-heeler.png",
+      "description": "logistical Country Steel Beryllium Southeast orange Wagon Fish",
       "isFavorite": true,
+      "id": 0
+    },
+    {
+      "name": "Verner",
+      "image": "/assets/cowardly.png",
+      "description": "Southeast Computer aw North Dynamic blind Producer",
+      "isFavorite": true,
+      "id": 1
+    },
+    {
+      "name": "Lorenzo",
+      "image": "/assets/blue-heeler.png",
+      "description": "righteously Bedfordshire B2B Southwest compress Savings Tennessee",
+      "isFavorite": true,
+      "id": 2
+    },
+    {
+      "name": "Juwan",
+      "image": "/assets/corgi.png",
+      "description": "South skullduggery parse Mouse distributed invoice transform",
+      "isFavorite": false,
+      "id": 4
+    },
+    {
+      "name": "Brice",
+      "image": "/assets/chihuahua.avif",
+      "description": "Avon Executive South Territories Pines Chicken duh and",
+      "isFavorite": true,
+      "id": 6
+    },
+    {
+      "name": "Billie",
+      "image": "/assets/cowardly.png",
+      "description": "Hauck person failing Agent knowingly bypass modulo Convertible",
+      "isFavorite": true,
+      "id": 8
+    },
+    {
+      "name": "Dee",
+      "image": "/assets/dalmation.png",
+      "description": "Investor Cheese Kenneth Table Ferrari Tools Wooden",
+      "isFavorite": true,
+      "id": 9
+    },
+    {
+      "name": "Angelica",
+      "image": "/assets/boxer.png",
+      "description": "Implementation Accounts Smart South up Northeast male South",
+      "isFavorite": false,
+      "id": 10
+    },
+    {
+      "name": "Oma",
+      "image": "/assets/boxer.png",
+      "description": "paltry fluid male Soul Granite Chief reboot Ford",
+      "isFavorite": false,
+      "id": 11
+    },
+    {
+      "name": "Roy",
+      "image": "/assets/boxer.png",
+      "description": "North intrigue Jazz tool installation outface minus",
+      "isFavorite": true,
+      "id": 12
+    },
+    {
+      "name": "Lula",
+      "image": "/assets/corgi.png",
+      "description": "azure Hybrid driver man Crew Pangender Concrete synthesize",
+      "isFavorite": false,
+      "id": 13
+    },
+    {
+      "name": "Ernestine",
+      "image": "/assets/chihuahua.avif",
+      "description": "faint Senior facilitate parallelism yellow Fish Manager",
+      "isFavorite": false,
       "id": 14
     },
     {
-      "name": "Enid",
-      "image": "/assets/blue-heeler.png",
-      "description": "Cargo Van SCSI oh scale",
-      "isFavorite": false,
+      "name": "Brianne",
+      "image": "/assets/corgi.png",
+      "description": "compress Multigender Minivan Lead Pickup",
+      "isFavorite": true,
+      "id": 15
+    },
+    {
+      "name": "Trinity",
+      "image": "/assets/chihuahua.avif",
+      "description": "harness driver Iceland Southwest Oklahoma",
+      "isFavorite": true,
       "id": 16
     },
     {
-      "name": "Bradford",
-      "image": "/assets/blue-heeler.png",
-      "description": "silver Riel Fresh Southwest SUV Synchronised male",
-      "isFavorite": false,
+      "name": "Tanner",
+      "image": "/assets/cowardly.png",
+      "description": "joule content Keyboard Proactive Southwest",
+      "isFavorite": true,
       "id": 17
     },
     {
-      "name": "Maribel",
-      "image": "/assets/cowardly.png",
-      "description": "female Soft redundant Silver South",
-      "isFavorite": false,
+      "name": "Clementine",
+      "image": "/assets/chihuahua.avif",
+      "description": "female Chicken considering mobile withdrawal",
+      "isFavorite": true,
       "id": 18
     },
     {
-      "name": "Frederick",
-      "image": "/assets/boxer.png",
-      "description": "Computer Dynamic ASCII Martin Pop",
-      "isFavorite": false,
-      "id": 19
-    },
-    {
-      "name": "testies",
-      "description": "optimistic postDog",
-      "image": "/assets/blue-heeler.png",
+      "name": "heyO",
+      "description": "new godsgasdgf",
+      "image": "/assets/OG.jpg",
       "isFavorite": true,
       "id": 20
     },
     {
-      "name": "test_2",
-      "description": "antoher test",
-      "image": "/assets/cowardly.png",
+      "name": "hapy ",
+      "description": "ksdjfkasjdkfjsadff",
+      "image": "/assets/corgi.png",
       "isFavorite": true,
       "id": 21
     },
     {
-      "name": "hotdog",
-      "description": "useEffect testing alldogs.length",
-      "image": "/assets/yorki.png",
+      "name": "",
+      "description": "",
+      "image": "/assets/OG.jpg",
       "isFavorite": true,
       "id": 22
-    },
-    {
-      "name": "dog10 ",
-      "description": "does this render ",
-      "image": "/assets/OG.jpg",
-      "isFavorite": true,
-      "id": 23
-    },
-    {
-      "name": "useEfffctC:LOP",
-      "description": "dasfgsadfsadfsafsadfsadfdd",
-      "image": "/assets/chihuahua.avif",
-      "isFavorite": true,
-      "id": 24
-    },
-    {
-      "name": "pepper pep",
-      "description": "spicy",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": true,
-      "id": 25
-    },
-    {
-      "name": "sdf",
-      "description": "sdf",
-      "image": "/assets/OG.jpg",
-      "isFavorite": true,
-      "id": 26
     }
   ]
 }
