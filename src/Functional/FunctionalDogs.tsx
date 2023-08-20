@@ -3,22 +3,18 @@ import { DogCard } from "../Shared/DogCard";
 import { Requests } from "../api";
 import { Dog } from "../types";
 import React from "react";
-import { useIsLoadingStore } from "../store/useIsLoadingStore";
-import { useAllDogsStore } from "../store/useAllDogsStore";
-import { useShowDogsStore } from "../store/useShowDogStore";
+import { useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalDogs: React.FunctionComponent = () => {
-  const { allDogs, setAllDogs } = useAllDogsStore();
-  const { isLoading } = useIsLoadingStore();
-  const { showDogs } = useShowDogsStore();
+  const { allDogs, setAllDogs, activeTab, isLoading } = useTheDogStore();
   const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
   const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
 
   const filteredDogs = (() => {
-    if (showDogs === "favDogs") {
+    if (activeTab === "favDogs") {
       return favDogs;
     }
-    if (showDogs === "notFavDogs") {
+    if (activeTab === "notFavDogs") {
       return notFavDogs;
     }
     return allDogs;

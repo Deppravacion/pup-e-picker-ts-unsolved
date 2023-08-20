@@ -8,20 +8,6 @@
       "id": 0
     },
     {
-      "name": "Verner",
-      "image": "/assets/cowardly.png",
-      "description": "Southeast Computer aw North Dynamic blind Producer",
-      "isFavorite": true,
-      "id": 1
-    },
-    {
-      "name": "Lorenzo",
-      "image": "/assets/blue-heeler.png",
-      "description": "righteously Bedfordshire B2B Southwest compress Savings Tennessee",
-      "isFavorite": true,
-      "id": 2
-    },
-    {
       "name": "Juwan",
       "image": "/assets/corgi.png",
       "description": "South skullduggery parse Mouse distributed invoice transform",
@@ -152,20 +138,6 @@
       "description": "",
       "image": "/assets/blue-heeler.png",
       "isFavorite": true,
-      "id": 25
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": true,
-      "id": 26
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "/assets/blue-heeler.png",
-      "isFavorite": true,
       "id": 27
     },
     {
@@ -181,6 +153,13 @@
       "image": "/assets/chihuahua.avif",
       "isFavorite": true,
       "id": 29
+    },
+    {
+      "name": "zusti",
+      "description": "thiccc",
+      "image": "/assets/yorki.png",
+      "isFavorite": true,
+      "id": 30
     }
   ]
 }

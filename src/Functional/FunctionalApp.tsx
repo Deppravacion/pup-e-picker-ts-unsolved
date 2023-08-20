@@ -11,7 +11,6 @@ export function FunctionalApp() {
     state.setAllDogs,
   ]);
 
-
   useEffect(() => {
     const myPromise = handleData();
     toast.promise(myPromise, {

@@ -2,47 +2,53 @@ import React from "react";
 import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
-import { useAllDogsStore } from "../store/useAllDogsStore";
-import { useShowDogsStore } from "../store/useShowDogStore";
-import { useIsFormActiveStore } from "../store/useIsFormActiveStore";
+import { Dog } from "../types";
+import { useTheDogStore } from "../store/useTheDogStore";
+
 export const FunctionalSection: React.FunctionComponent = () => {
-  const { allDogs } = useAllDogsStore();
-  const { showDogs, setShowDogs } = useShowDogsStore();
-  const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
-  const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
-  const { isFormActive, setIsFormActive } = useIsFormActiveStore();
+  const [allDogs, activeTab, setActiveTab, isFormActive, setIsFormActive] =
+    useTheDogStore((state) => [
+      state.allDogs,
+      state.activeTab,
+      state.setActiveTab,
+      state.isFormActive,
+      state.setIsFormActive,
+    ]);
+
+  const favDogs = allDogs.filter((dog: Dog) => dog.isFavorite === true);
+  const notFavDogs = allDogs.filter((dog: Dog) => dog.isFavorite === false);
   const onClickFavDogs = () => {
-    if (showDogs === "favDogs") {
-      return setShowDogs("allDogs");
+    if (activeTab === "favDogs") {
+      return setActiveTab("allDogs");
     }
-    return setShowDogs("favDogs");
+    return setActiveTab("favDogs");
   };
   const onClickNotFavDogs = () => {
-    if (showDogs === "notFavDogs") {
-      return setShowDogs("allDogs");
+    if (activeTab === "notFavDogs") {
+      return setActiveTab("allDogs");
     }
-    return setShowDogs("notFavDogs");
+    return setActiveTab("notFavDogs");
   };
 
   return (
     <section id="main-section">
       <div className="container-header">
         <div className="container-label">{`Dogs: ${
-          showDogs === "favDogs"
+          activeTab === "favDogs"
             ? favDogs.length
-            : showDogs === "notFavDogs"
+            : activeTab === "notFavDogs"
             ? notFavDogs.length
             : allDogs.length
         } `}</div>
         <div className="selectors">
           <div
-            className={`selector ${showDogs === "favDogs" && "active"}`}
+            className={`selector ${activeTab === "favDogs" && "active"}`}
             onClick={() => onClickFavDogs()}
           >
             {`favorited ( ${favDogs.length} )`}
           </div>
           <div
-            className={`selector ${showDogs === "notFavDogs" && "active"}`}
+            className={`selector ${activeTab === "notFavDogs" && "active"}`}
             onClick={() => onClickNotFavDogs()}
           >
             {`un-favorited ( ${notFavDogs.length} )`}
