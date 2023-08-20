@@ -174,6 +174,13 @@
       "image": "/assets/blue-heeler.png",
       "isFavorite": true,
       "id": 28
+    },
+    {
+      "name": "asdfasdfsad",
+      "description": "asdfasdfsdafsadfsadf",
+      "image": "/assets/chihuahua.avif",
+      "isFavorite": true,
+      "id": 29
     }
   ]
 }

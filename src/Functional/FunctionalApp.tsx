@@ -5,7 +5,12 @@ import { useTheDogStore } from "../store/useTheDogStore";
 import { fetchData } from "./utils/utilities";
 
 export function FunctionalApp() {
-  const { isFormActive, setIsLoading, setAllDogs  } = useTheDogStore();
+  const [isFormActive, setIsLoading, setAllDogs] = useTheDogStore((state) => [
+    state.isFormActive,
+    state.setIsLoading,
+    state.setAllDogs,
+  ]);
+
 
   useEffect(() => {
     const myPromise = handleData();
@@ -15,7 +20,7 @@ export function FunctionalApp() {
       error: "Error when fetching",
     });
   }, [isFormActive]);
-  
+
   function handleData() {
     setIsLoading(true);
     return fetchData()
@@ -27,7 +32,7 @@ export function FunctionalApp() {
     <div className="App" style={{ backgroundColor: "skyblue" }}>
       <header>
         <h1>pup-e-picker (Functional)</h1>
-      </header>  
+      </header>
       <FunctionalSection />
       <Toaster />
     </div>

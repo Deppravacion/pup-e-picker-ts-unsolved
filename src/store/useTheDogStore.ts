@@ -5,12 +5,12 @@ import { Requests } from "../api";
 interface DogStore {
   isLoading: boolean;
   allDogs: Dog[];
-  activeTab: string;
+  activeTab: "allDogs" | "favDogs" | "notFavDogs";
   isFormActive: boolean;
   setIsLoading: (by: boolean) => void;
   setIsFormActive: (by: boolean) => void;
   setAllDogs: (by: Dog[]) => void;
-  setActiveTab: (by: string) => void;
+  setActiveTab: (by: "allDogs" | "favDogs" | "notFavDogs") => void;
   createDog: (dog: Omit<Dog, "id">) => void;
   getDogs: () => void;
   updateDog: (dogId: number, key: boolean) => void;

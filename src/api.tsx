@@ -2,16 +2,10 @@ import { Dog } from "./types";
 
 export const baseUrl = "http://localhost:3000/dogs/";
 export const jsonHeaders = { "Content-Type": "application/json" };
-
-// export const fetchData = () => {
-//   return Requests.getAllDogs();
-// };
-
 export const Requests = {
-   getAllDogs: async (): Promise<Dog[]> => {
+  getAllDogs: async (): Promise<Dog[]> => {
     return await fetch(`${baseUrl}`).then((res) => res.json());
   },
-
   deleteDog: async (id: number): Promise<Response> => {
     return await fetch(`${baseUrl}${id}`, {
       method: "DELETE",
