@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { dogPictures } from "../dog-pictures";
-import { Requests } from "../api";
-import { Dog } from "../types";
+// import { Requests } from "../api";
+// import { Dog } from "../types";
 import { toast } from "react-hot-toast";
 import { useTheDogStore } from "../store/useTheDogStore";
 
@@ -9,20 +9,11 @@ export const FunctionalCreateDogForm: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
   const [inputDescription, setInputDescription] = useState<string>("");
   const [inputPicture, setInputPicture] = useState<string>("/assets/OG.jpg");
-  const [setIsFormActive, allDogs, setAllDogs, isLoading] = useTheDogStore(
-    (state) => [
-      state.setIsFormActive,
-      state.allDogs,
-      state.setAllDogs,
-      state.isLoading,
-    ]
-  );
-  const dog: Omit<Dog, "id"> = {
-    name: inputName,
-    description: inputDescription,
-    image: inputPicture,
-    isFavorite: true,
-  };
+  const { createDog, isLoading } = useTheDogStore((store) => ({
+    createDog: store.createDog,
+    isLoading: store.isLoading,
+  }));
+
   const resetInputState = () => {
     setInputName("");
     setInputDescription("");
@@ -31,24 +22,23 @@ export const FunctionalCreateDogForm: React.FC = () => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const newDogs = [...allDogs];
-    setAllDogs(newDogs);
-    Requests.postDog(dog).then((response) => {
+    createDog({
+      name: inputName,
+      description: inputDescription,
+      image: inputPicture,
+      isFavorite: true,
+    }).then(() => {
       resetInputState();
-      setIsFormActive(false);
-      if (!response.ok) {
-        setIsFormActive(true);
-        setAllDogs(allDogs);
-        toast.error("error");
-      }
+      toast.success("New Dog Created");
     });
   }
+
   return (
     <form
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
-        e.preventDefault()
+        e.preventDefault();
         handleSubmit(e);
       }}
     >
