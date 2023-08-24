@@ -1,5 +1,4 @@
 import { useState } from "react";
-import React from "react";
 import { dogPictures } from "../dog-pictures";
 import { Requests } from "../api";
 import { Dog } from "../types";
@@ -49,6 +48,7 @@ export const FunctionalCreateDogForm: React.FC = () => {
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
+        e.preventDefault()
         handleSubmit(e);
       }}
     >

@@ -2,7 +2,6 @@ import { toast } from "react-hot-toast";
 import { DogCard } from "../Shared/DogCard";
 import { Requests } from "../api";
 import { Dog } from "../types";
-import React from "react";
 import { useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalDogs: React.FunctionComponent = () => {

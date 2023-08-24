@@ -1,4 +1,3 @@
-import React from "react";
 import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
@@ -62,8 +61,10 @@ export const FunctionalSection: React.FunctionComponent = () => {
         </div>
       </div>
       <SectionLayout>
-        {!isFormActive && <FunctionalDogs />}
-        {isFormActive && <FunctionalCreateDogForm />}
+        { activeTab === 'favDogs' || activeTab === 'notFavDogs' && <FunctionalDogs /> }
+        { activeTab === 'createDogForm' && <FunctionalCreateDogForm />}
+        {/* {!isFormActive && <FunctionalDogs />} */}
+        {/* {isFormActive && <FunctionalCreateDogForm />} */}
       </SectionLayout>
     </section>
   );

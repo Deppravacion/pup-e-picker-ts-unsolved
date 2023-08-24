@@ -1,3 +1,4 @@
+
 module.exports = {
     "env": {
         "browser": true,
@@ -31,5 +32,6 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "react/react-in-jsx-scope": "off",
     }
 }
