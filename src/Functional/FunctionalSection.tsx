@@ -3,6 +3,7 @@ import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
 import { Dog } from "../types";
 import { useTheDogStore } from "../store/useTheDogStore";
+import { shallow } from "zustand/shallow";
 
 export const FunctionalSection: React.FunctionComponent = () => {
   const [allDogs, activeTab, setActiveTab, isFormActive, setIsFormActive] =
@@ -12,7 +13,7 @@ export const FunctionalSection: React.FunctionComponent = () => {
       state.setActiveTab,
       state.isFormActive,
       state.setIsFormActive,
-    ]);
+    ], shallow);
 
   const favDogs = allDogs.filter((dog: Dog) => dog.isFavorite === true);
   const notFavDogs = allDogs.filter((dog: Dog) => dog.isFavorite === false);
@@ -61,7 +62,7 @@ export const FunctionalSection: React.FunctionComponent = () => {
         </div>
       </div>
       <SectionLayout>
-        { activeTab === 'favDogs' || activeTab === 'notFavDogs' && <FunctionalDogs /> }
+        { activeTab != 'createDogForm' && <FunctionalDogs /> }
         { activeTab === 'createDogForm' && <FunctionalCreateDogForm />}
         {/* {!isFormActive && <FunctionalDogs />} */}
         {/* {isFormActive && <FunctionalCreateDogForm />} */}

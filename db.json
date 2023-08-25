@@ -18,7 +18,7 @@
       "name": "Brice",
       "image": "/assets/chihuahua.avif",
       "description": "Avon Executive South Territories Pines Chicken duh and",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 6
     },
     {
@@ -32,7 +32,7 @@
       "name": "Dee",
       "image": "/assets/dalmation.png",
       "description": "Investor Cheese Kenneth Table Ferrari Tools Wooden",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 9
     },
     {
@@ -99,39 +99,11 @@
       "id": 18
     },
     {
-      "name": "heyO",
-      "description": "new godsgasdgf",
-      "image": "/assets/OG.jpg",
-      "isFavorite": true,
-      "id": 20
-    },
-    {
       "name": "hapy ",
       "description": "ksdjfkasjdkfjsadff",
       "image": "/assets/corgi.png",
       "isFavorite": true,
       "id": 21
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "/assets/OG.jpg",
-      "isFavorite": true,
-      "id": 22
-    },
-    {
-      "name": "asdf",
-      "description": "sadf",
-      "image": "/assets/OG.jpg",
-      "isFavorite": true,
-      "id": 23
-    },
-    {
-      "name": "asdf",
-      "description": "sadf",
-      "image": "/assets/OG.jpg",
-      "isFavorite": true,
-      "id": 24
     },
     {
       "name": "",

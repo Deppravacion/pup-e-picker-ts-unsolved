@@ -10,6 +10,7 @@ export function FunctionalApp() {
     state.setIsLoading,
     state.setAllDogs,
   ]);
+  const refetchDogs = useTheDogStore(store => store.refetchDogs)
 
   useEffect(() => {
     const myPromise = handleData();

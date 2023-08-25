@@ -1,37 +1,39 @@
+// import { create } from "zustand";
 import { create } from "zustand";
 import { Dog } from "../types";
 import { Requests } from "../api";
 
 interface DogStore {
   isLoading: boolean;
+  setIsLoading: (isLoading: boolean) => void;
   allDogs: Dog[];
+  setAllDogs: (dogs: Dog[]) => void;
   activeTab: "allDogs" | "favDogs" | "notFavDogs" | "createDogForm";
+  setActiveTab: (activeTab: "allDogs" | "favDogs" | "notFavDogs") => void;
   isFormActive: boolean;
-  setIsLoading: (by: boolean) => void;
   setIsFormActive: (by: boolean) => void;
-  setAllDogs: (by: Dog[]) => void;
-  setActiveTab: (by: "allDogs" | "favDogs" | "notFavDogs") => void;
   createDog: (dog: Omit<Dog, "id">) => void;
   getDogs: () => void;
   updateDog: (dogId: number, key: boolean) => void;
   deleteDog: (dogId: number) => void;
+  refetchDogs: () => void;
 }
 
 export const useTheDogStore = create<DogStore>()((set) => ({
-  allDogs: [],
   isLoading: false,
-  isFormActive: false,
+  setIsLoading: (isLoading) => ({ isLoading: isLoading }),
+  allDogs: [],
+  setAllDogs: (dogs) => set(() => ({ allDogs: dogs })),
   activeTab: "allDogs",
+  setActiveTab: (activeTab) => set(() => ({ activeTab: activeTab })),
+  isFormActive: false,
   setIsFormActive: (by) => set(() => ({ isFormActive: by })),
-  setAllDogs: (by) => set(() => ({ allDogs: by })),
-  setActiveTab: (by) => set(() => ({ activeTab: by })),
   createDog: (dog) => {
     set({ isLoading: true });
     Requests.postDog(dog).finally(() => {
       set({ isLoading: false });
     });
   },
-  setIsLoading: (by) => ({ isLoading: by }),
   getDogs: () => {
     set({ isLoading: true });
     Requests.getAllDogs().finally(() => {
@@ -49,5 +51,13 @@ export const useTheDogStore = create<DogStore>()((set) => ({
     Requests.deleteDog(dog).finally(() => {
       set({ isLoading: false });
     });
+  },
+  refetchDogs: () => {
+    set({ isLoading: true });
+    Requests.getAllDogs()
+      .then((dogs) => set({ allDogs: dogs }))
+      .finally(() => {
+        set({ isLoading: false });
+      });
   },
 }));
