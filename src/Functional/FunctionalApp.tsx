@@ -1,32 +1,36 @@
 import { useEffect } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { FunctionalSection } from "./FunctionalSection";
 import { useTheDogStore } from "../store/useTheDogStore";
-import { fetchData } from "./utils/utilities";
+// import { fetchData } from "./utils/utilities";
 
 export function FunctionalApp() {
-  const [isFormActive, setIsLoading, setAllDogs] = useTheDogStore((state) => [
-    state.isFormActive,
-    state.setIsLoading,
-    state.setAllDogs,
-  ]);
+  // const [isFormActive, setIsLoading, setAllDogs] = useTheDogStore((state) => [
+  //   state.isFormActive,
+  //   state.setIsLoading,
+  //   state.setAllDogs,
+  // ]);
   const refetchDogs = useTheDogStore(store => store.refetchDogs)
 
   useEffect(() => {
-    const myPromise = handleData();
-    toast.promise(myPromise, {
-      loading: "Loading",
-      success: "Got the data",
-      error: "Error when fetching",
-    });
-  }, [isFormActive]);
+    refetchDogs()
+  }, [])
 
-  function handleData() {
-    setIsLoading(true);
-    return fetchData()
-      .then((dogs) => setAllDogs(dogs))
-      .finally(() => setIsLoading(false));
-  }
+  // useEffect(() => {
+  //   const myPromise = handleData();
+  //   toast.promise(myPromise, {
+  //     loading: "Loading",
+  //     success: "Got the data",
+  //     error: "Error when fetching",
+  //   });
+  // }, [isFormActive]);
+
+  // function handleData() {
+  //   setIsLoading(true);
+  //   return fetchData()
+  //     .then((dogs) => setAllDogs(dogs))
+  //     .finally(() => setIsLoading(false));
+  // }
 
   return (
     <div className="App" style={{ backgroundColor: "skyblue" }}>
