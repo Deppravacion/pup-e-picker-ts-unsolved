@@ -5,16 +5,28 @@ import { Dog } from "../types";
 import { useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalDogs: React.FunctionComponent = () => {
-  const { allDogs, setAllDogs, activeTab, isLoading } = useTheDogStore();
-  const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
-  const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
+  const [allDogs, activeTab, isLoading,favDogs, setAllDogs, getFavDogs] =
+    useTheDogStore((store) => [
+      store.allDogs,
+      store.activeTab,
+      store.isLoading,
+      store.favDogs,
+      store.setAllDogs,
+      store.getFavDogs
+    ]);
 
-  const filteredDogs = (() => {
+  const filteredDogs  = (() =>  {
     if (activeTab === "favDogs") {
-      return favDogs;
+      getFavDogs
+      console.log(favDogs);
+      return favDogs
     }
     if (activeTab === "notFavDogs") {
-      return notFavDogs;
+      console.log('not favs');
+      
+
+      return favDogs;
+      // return notFavDogs;
     }
     return allDogs;
   })();

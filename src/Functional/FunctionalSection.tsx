@@ -5,30 +5,37 @@ import { useTheDogStore } from "../store/useTheDogStore";
 import { Dog } from "../types";
 
 export const FunctionalSection: React.FunctionComponent = () => {
-  const { allDogs,
-    //  favDogs, notFavDogs, 
-     activeTab, onClickFavDogs, onClickNotFavDogs, onClickCreateDog } = useTheDogStore((store) => ({
+  const {
+    allDogs,
+    favDogs,
+    notFavDogs,
+    activeTab,
+    onClickFavDogs,
+    onClickNotFavDogs,
+    onClickCreateDog,
+  } = useTheDogStore((store) => ({
     allDogs: store.allDogs,
     activeTab: store.activeTab,
-    // favDogs: store.favDogs,
-    // notFavDogs: store.notFavDogs,
+    favDogs: store.favDogs,
+    notFavDogs: store.notFavDogs,
     onClickFavDogs: store.onClickFavDogs,
     onClickNotFavDogs: store.onClickNotFavDogs,
     onClickCreateDog: store.onClickCreateDog,
   }));
 
-  const favDogs = allDogs.filter((dog: Dog) => dog.isFavorite === true))
-  const notFavDogs = allDogs.filter((dog: Dog) => dog.isFavorite === false))
+  console.log( activeTab);
   return (
     <section id="main-section">
       <div className="container-header">
-        <div className="container-label">{`Dogs: ${
-          activeTab === "favDogs"
-            ? favDogs.length
-            : activeTab === "notFavDogs"
-            ? notFavDogs.length
-            : allDogs.length
-        } `}</div>
+        <div className="container-label">
+          {`Dogs: ${
+            activeTab === "favDogs"
+              ? favDogs.length
+              : activeTab === "notFavDogs"
+              ? notFavDogs.length
+              : allDogs.length
+          } `}
+        </div>
         <div className="selectors">
           <div
             className={`selector ${activeTab === "favDogs" && "active"}`}
@@ -44,7 +51,6 @@ export const FunctionalSection: React.FunctionComponent = () => {
           </div>
           <div
             className="selector toForm_btn"
-            // onClick={() => setIsFormActive(!isFormActive)}
             onClick={() => onClickCreateDog}
           >
             {`create dog`}
@@ -52,11 +58,10 @@ export const FunctionalSection: React.FunctionComponent = () => {
         </div>
       </div>
       <SectionLayout>
-        {activeTab === "favDogs" ||
-          (activeTab === "notFavDogs" && <FunctionalDogs />)}
+        {/* { activeTab === 'allDogs' && <FunctionalDogs /> } */}
+        {/* { activeTab === 'notFavDogs' && <FunctionalDogs /> } */}
+        { activeTab === 'favDogs' && <FunctionalDogs /> }
         {activeTab === "createDogForm" && <FunctionalCreateDogForm />}
-        {/* {!isFormActive && <FunctionalDogs />} */}
-        {/* {isFormActive && <FunctionalCreateDogForm />} */}
       </SectionLayout>
     </section>
   );

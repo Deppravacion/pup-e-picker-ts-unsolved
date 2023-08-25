@@ -9,10 +9,11 @@ export const FunctionalCreateDogForm: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
   const [inputDescription, setInputDescription] = useState<string>("");
   const [inputPicture, setInputPicture] = useState<string>("/assets/OG.jpg");
-  const { createDog, isLoading } = useTheDogStore((store) => ({
-    createDog: store.createDog,
-    isLoading: store.isLoading,
-  }));
+  // const { createDog, isLoading } = useTheDogStore((store) => ({
+  //   createDog: store.createDog,
+  //   isLoading: store.isLoading,
+  // }));
+  const [createDog, isLoading] = useTheDogStore(state => [state.createDog, state.isLoading])
 
   const resetInputState = () => {
     setInputName("");
