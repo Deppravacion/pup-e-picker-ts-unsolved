@@ -64,7 +64,6 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
   },
   refetchDogs: async () => {
     set({ isLoading: true });
-    // get().setFavDogs
     return Requests.getAllDogs()
       .then((dogs) => set({ allDogs: dogs }))
       .finally(() => {
