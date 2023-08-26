@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { dogPictures } from "../dog-pictures";
-import { Requests } from "../api";
-import { Dog } from "../types";
 import { toast } from "react-hot-toast";
 import { useTheDogStore } from "../store/useTheDogStore";
 
@@ -9,46 +7,17 @@ export const FunctionalCreateDogForm: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
   const [inputDescription, setInputDescription] = useState<string>("");
   const [inputPicture, setInputPicture] = useState<string>("/assets/OG.jpg");
-  const [setIsFormActive, allDogs, setAllDogs, isLoading] = useTheDogStore(
-    (state) => [
-      state.setIsFormActive,
-      state.allDogs,
-      state.setAllDogs,
-      state.isLoading,
-    ]
-  );
-  const dog: Omit<Dog, "id"> = {
-    name: inputName,
-    description: inputDescription,
-    image: inputPicture,
-    isFavorite: true,
-  };
-  const resetInputState = () => {
-    setInputName("");
-    setInputDescription("");
-    setInputPicture("/assets/blue-heeler.png");
-  };
+  const [createDog, isLoading] = useTheDogStore((store) => [
+    store.createDog,
+    store.isLoading,
+  ]);
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const newDogs = [...allDogs];
-    setAllDogs(newDogs);
-    Requests.postDog(dog).then((response) => {
-      resetInputState();
-      setIsFormActive(false);
-      if (!response.ok) {
-        setIsFormActive(true);
-        setAllDogs(allDogs);
-        toast.error("error");
-      }
-    });
-  }
   return (
     <form
       action=""
       id="create-dog-form"
       onSubmit={(e) => {
-        e.preventDefault()
+        e.preventDefault();
         handleSubmit(e);
       }}
     >
@@ -87,4 +56,19 @@ export const FunctionalCreateDogForm: React.FC = () => {
       <input type="submit" disabled={isLoading} />
     </form>
   );
+  function handleSubmit(e: React.FormEvent): void {
+    e.preventDefault();
+    createDog({
+      description: inputDescription,
+      image: inputPicture,
+      isFavorite: true,
+      name: inputName,
+    }).then(() => resetInputState());
+    toast.success("Dog created");
+  }
+  function resetInputState(): void {
+    setInputName("");
+    setInputDescription("");
+    setInputPicture("/assets/blue-heeler.png");
+  }
 };

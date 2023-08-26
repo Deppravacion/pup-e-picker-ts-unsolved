@@ -2,6 +2,7 @@
 import { create } from "zustand";
 import { Dog } from "../types";
 import { Requests } from "../api";
+import { toast } from "react-hot-toast";
 
 interface DogStore {
   isLoading: boolean;
@@ -9,17 +10,19 @@ interface DogStore {
   allDogs: Dog[];
   setAllDogs: (dogs: Dog[]) => void;
   activeTab: "allDogs" | "favDogs" | "notFavDogs" | "createDogForm";
-  setActiveTab: (activeTab: "allDogs" | "favDogs" | "notFavDogs") => void;
+  setActiveTab: (
+    activeTab: "allDogs" | "favDogs" | "notFavDogs" | "createDogForm"
+  ) => void;
   isFormActive: boolean;
   setIsFormActive: (by: boolean) => void;
-  createDog: (dog: Omit<Dog, "id">) => void;
+  createDog: (dog: Omit<Dog, "id">) => Promise<void>;
   getDogs: () => void;
   updateDog: (dogId: number, key: boolean) => void;
   deleteDog: (dogId: number) => void;
-  refetchDogs: () => void;
+  refetchDogs: () => Promise<void>;
 }
 
-export const useTheDogStore = create<DogStore>()((set) => ({
+export const useTheDogStore = create<DogStore>()((set, get) => ({
   isLoading: false,
   setIsLoading: (isLoading) => ({ isLoading: isLoading }),
   allDogs: [],
@@ -28,11 +31,18 @@ export const useTheDogStore = create<DogStore>()((set) => ({
   setActiveTab: (activeTab) => set(() => ({ activeTab: activeTab })),
   isFormActive: false,
   setIsFormActive: (by) => set(() => ({ isFormActive: by })),
-  createDog: (dog) => {
+  createDog: async (dog) => {
     set({ isLoading: true });
-    Requests.postDog(dog).finally(() => {
-      set({ isLoading: false });
-    });
+    return Requests.postDog(dog)
+      .then(() => {
+        return get().refetchDogs();
+      })
+      .then(() => {
+        toast.success("your dog has been created");
+      })
+      .finally(() => {
+        set({ isLoading: false });
+      });
   },
   getDogs: () => {
     set({ isLoading: true });
@@ -52,9 +62,10 @@ export const useTheDogStore = create<DogStore>()((set) => ({
       set({ isLoading: false });
     });
   },
-  refetchDogs: () => {
+  refetchDogs: async () => {
     set({ isLoading: true });
-    Requests.getAllDogs()
+    // get().setFavDogs
+    return Requests.getAllDogs()
       .then((dogs) => set({ allDogs: dogs }))
       .finally(() => {
         set({ isLoading: false });

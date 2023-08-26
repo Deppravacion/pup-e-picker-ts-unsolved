@@ -3,32 +3,15 @@ import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
 import { Dog } from "../types";
 import { useTheDogStore } from "../store/useTheDogStore";
-import { shallow } from "zustand/shallow";
 
 export const FunctionalSection: React.FunctionComponent = () => {
-  const [allDogs, activeTab, setActiveTab, isFormActive, setIsFormActive] =
-    useTheDogStore((state) => [
-      state.allDogs,
-      state.activeTab,
-      state.setActiveTab,
-      state.isFormActive,
-      state.setIsFormActive,
-    ], shallow);
-
+  const [allDogs, activeTab, setActiveTab] = useTheDogStore((store) => [
+    store.allDogs,
+    store.activeTab,
+    store.setActiveTab,
+  ]);
   const favDogs = allDogs.filter((dog: Dog) => dog.isFavorite === true);
   const notFavDogs = allDogs.filter((dog: Dog) => dog.isFavorite === false);
-  const onClickFavDogs = () => {
-    if (activeTab === "favDogs") {
-      return setActiveTab("allDogs");
-    }
-    return setActiveTab("favDogs");
-  };
-  const onClickNotFavDogs = () => {
-    if (activeTab === "notFavDogs") {
-      return setActiveTab("allDogs");
-    }
-    return setActiveTab("notFavDogs");
-  };
 
   return (
     <section id="main-section">
@@ -55,18 +38,34 @@ export const FunctionalSection: React.FunctionComponent = () => {
           </div>
           <div
             className="selector toForm_btn"
-            onClick={() => setIsFormActive(!isFormActive)}
+            onClick={() => onClickCreateDogForm()}
           >
             {`create dog`}
           </div>
         </div>
       </div>
       <SectionLayout>
-        { activeTab != 'createDogForm' && <FunctionalDogs /> }
-        { activeTab === 'createDogForm' && <FunctionalCreateDogForm />}
-        {/* {!isFormActive && <FunctionalDogs />} */}
-        {/* {isFormActive && <FunctionalCreateDogForm />} */}
+        {activeTab != "createDogForm" && <FunctionalDogs />}
+        {activeTab === "createDogForm" && <FunctionalCreateDogForm />}
       </SectionLayout>
     </section>
   );
+  function onClickFavDogs() {
+    if (activeTab === "favDogs") {
+      return setActiveTab("allDogs");
+    }
+    return setActiveTab("favDogs");
+  }
+  function onClickNotFavDogs() {
+    if (activeTab === "notFavDogs") {
+      return setActiveTab("allDogs");
+    }
+    return setActiveTab("notFavDogs");
+  }
+  function onClickCreateDogForm() {
+    if (activeTab === "createDogForm") {
+      return setActiveTab("allDogs");
+    }
+    return setActiveTab("createDogForm");
+  }
 };

@@ -132,6 +132,13 @@
       "image": "/assets/yorki.png",
       "isFavorite": true,
       "id": 30
+    },
+    {
+      "description": "adaf",
+      "image": "/assets/OG.jpg",
+      "isFavorite": true,
+      "name": "new",
+      "id": 31
     }
   ]
 }

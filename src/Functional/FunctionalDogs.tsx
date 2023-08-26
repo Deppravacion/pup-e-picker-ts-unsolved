@@ -19,6 +19,32 @@ export const FunctionalDogs: React.FunctionComponent = () => {
     return allDogs;
   })();
 
+  return (
+    <>
+      {filteredDogs.map((dog: Dog) => (
+        <DogCard
+          dog={{
+            id: dog.id,
+            image: dog.image,
+            description: dog.description,
+            isFavorite: dog.isFavorite,
+            name: dog.name,
+          }}
+          key={dog.id}
+          onTrashIconClick={() => {
+            removeDog(dog.id);
+          }}
+          onHeartClick={() => {
+            removeFavorite(dog.id);
+          }}
+          onEmptyHeartClick={() => {
+            addFavorite(dog.id);
+          }}
+          isLoading={isLoading}
+        />
+      ))}
+    </>
+  );
   function removeFavorite(dogId: number) {
     setAllDogs(
       allDogs.map((dog) =>
@@ -56,30 +82,4 @@ export const FunctionalDogs: React.FunctionComponent = () => {
       } else return;
     });
   }
-  return (
-    <>
-      {filteredDogs.map((dog: Dog) => (
-        <DogCard
-          dog={{
-            id: dog.id,
-            image: dog.image,
-            description: dog.description,
-            isFavorite: dog.isFavorite,
-            name: dog.name,
-          }}
-          key={dog.id}
-          onTrashIconClick={() => {
-            removeDog(dog.id);
-          }}
-          onHeartClick={() => {
-            removeFavorite(dog.id);
-          }}
-          onEmptyHeartClick={() => {
-            addFavorite(dog.id);
-          }}
-          isLoading={isLoading}
-        />
-      ))}
-    </>
-  );
 };
