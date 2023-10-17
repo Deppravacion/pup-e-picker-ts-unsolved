@@ -3,6 +3,7 @@ import { create } from "zustand";
 import { Dog } from "../types";
 import { Requests } from "../api";
 import { toast } from "react-hot-toast";
+import { fa } from "@faker-js/faker";
 
 interface DogStore {
   isLoading: boolean;
@@ -21,6 +22,11 @@ interface DogStore {
   deleteDog: (dogId: number) => void;
   refetchDogs: () => Promise<void>;
   favDogs: Dog[];
+  // setFavDogs: (dogs: Dog[]) => void;
+  notFavDogs: Dog[];
+  // setNotFavDogs: (dogs: Dog[]) => void;
+  // onClickFavDogs: () => void;
+  // toggleFavorite: (dogId: number) => DogStore | Partial<DogStore>;
 }
 
 export const useTheDogStore = create<DogStore>()((set, get) => ({
@@ -66,10 +72,24 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
   refetchDogs: async () => {
     set({ isLoading: true });
     return Requests.getAllDogs()
-      .then((dogs) => set({ allDogs: dogs }))
+      .then((dogs) => set({ 
+        allDogs: dogs,
+        favDogs: dogs.filter((dog) => dog.isFavorite === true),
+        notFavDogs: dogs.filter((dog) => dog.isFavorite === false),
+      }))
       .finally(() => {
         set({ isLoading: false });
       });
   },
-  favDogs: get().allDogs.filter((dog) => dog.isFavorite),
+  favDogs: [],
+  // setFavDogs: (dogs) => set(() => ({ favDogs: dogs })),
+  notFavDogs: [],
+  // setNotFavDogs: (dogs) => set(() => ({ notFavDogs: dogs })),
+  // onClickFavDogs: () => {
+  //   if (get().activeTab === "favDogs") {
+  //     set({ activeTab: "allDogs" });
+  //   } else {
+  //     set({ activeTab: "favDogs" });
+  //   }
+  // },
 }));

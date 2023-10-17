@@ -5,8 +5,8 @@ import { Dog } from "../types";
 import { useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalDogs: React.FunctionComponent = () => {
-  const { allDogs, setAllDogs, activeTab, isLoading, favDogs } = useTheDogStore();
-  // const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
+  const { allDogs, setAllDogs, activeTab, isLoading, } = useTheDogStore();
+  const favDogs = allDogs.filter((dog) => dog.isFavorite === true);
   const notFavDogs = allDogs.filter((dog) => dog.isFavorite === false);
 
   const filteredDogs = (() => {

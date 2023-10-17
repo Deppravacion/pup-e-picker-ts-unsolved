@@ -4,7 +4,7 @@
       "name": "River",
       "image": "/assets/blue-heeler.png",
       "description": "logistical Country Steel Beryllium Southeast orange Wagon Fish",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 0
     },
     {
@@ -67,7 +67,7 @@
       "name": "Brianne",
       "image": "/assets/corgi.png",
       "description": "compress Multigender Minivan Lead Pickup",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 15
     },
     {
@@ -81,7 +81,7 @@
       "name": "Tanner",
       "image": "/assets/cowardly.png",
       "description": "joule content Keyboard Proactive Southwest",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 17
     },
     {
@@ -95,7 +95,7 @@
       "name": "hapy ",
       "description": "ksdjfkasjdkfjsadff",
       "image": "/assets/corgi.png",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 21
     },
     {
@@ -106,18 +106,11 @@
       "id": 29
     },
     {
-      "name": "zusti",
-      "description": "thiccc",
-      "image": "/assets/yorki.png",
-      "isFavorite": false,
-      "id": 30
-    },
-    {
-      "description": "adaf",
+      "description": "asdfwasasdfasdf",
       "image": "/assets/OG.jpg",
       "isFavorite": false,
-      "name": "new",
-      "id": 31
+      "name": "favme",
+      "id": 32
     }
   ]
 }
