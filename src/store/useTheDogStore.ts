@@ -20,6 +20,7 @@ interface DogStore {
   updateDog: (dogId: number, key: boolean) => void;
   deleteDog: (dogId: number) => void;
   refetchDogs: () => Promise<void>;
+  favDogs: Dog[];
 }
 
 export const useTheDogStore = create<DogStore>()((set, get) => ({
@@ -70,4 +71,5 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
         set({ isLoading: false });
       });
   },
+  favDogs: get().allDogs.filter((dog) => dog.isFavorite),
 }));
