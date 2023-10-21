@@ -1,18 +1,26 @@
 import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
-
 import { useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalSection: React.FunctionComponent = () => {
-  const [allDogs, activeTab, setActiveTab, favDogs, notFavDogs] =
-    useTheDogStore((store) => [
-      store.allDogs,
-      store.activeTab,
-      store.setActiveTab,
-      store.favDogs,
-      store.notFavDogs,
-    ]);
+  const [
+    allDogs,
+    activeTab,
+    favDogs,
+    notFavDogs,
+    onClickFavDogs,
+    onClickNotFavDogs,
+    onClickCreateDogForm,
+  ] = useTheDogStore((store) => [
+    store.allDogs,
+    store.activeTab,
+    store.favDogs,
+    store.notFavDogs,
+    store.onClickFavDogs,
+    store.onClickNotFavDogs,
+    store.onClickCreateDogForm,
+  ]);
 
   return (
     <section id="main-section">
@@ -51,22 +59,4 @@ export const FunctionalSection: React.FunctionComponent = () => {
       </SectionLayout>
     </section>
   );
-  function onClickFavDogs() {
-    if (activeTab === "favDogs") {
-      return setActiveTab("allDogs");
-    }
-    return setActiveTab("favDogs");
-  }
-  function onClickNotFavDogs() {
-    if (activeTab === "notFavDogs") {
-      return setActiveTab("allDogs");
-    }
-    return setActiveTab("notFavDogs");
-  }
-  function onClickCreateDogForm() {
-    if (activeTab === "createDogForm") {
-      return setActiveTab("allDogs");
-    }
-    return setActiveTab("createDogForm");
-  }
 };

@@ -22,6 +22,9 @@ interface DogStore {
   refetchDogs: () => Promise<void>;
   toggleFavorite: (dogId: number, isFav: boolean) => void;
   removeDog: (dogId: number) => void;
+  onClickFavDogs: () => void;
+  onClickNotFavDogs: () => void;
+  onClickCreateDogForm: () => void;
 }
 
 export const useTheDogStore = create<DogStore>()((set, get) => ({
@@ -112,4 +115,23 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
         set({ isLoading: false });
       });
   },
+  onClickFavDogs: () => {
+    if (get().activeTab === "favDogs") {
+      return set({ activeTab: "allDogs" });
+    }
+    return set({ activeTab: "favDogs" });
+  },
+  onClickNotFavDogs: () => {
+    if (get().activeTab === "notFavDogs") {
+      return set({ activeTab: "allDogs" });
+    }
+    return set({ activeTab: "notFavDogs" });
+  },
+  onClickCreateDogForm: () => {
+    if (get().activeTab === "createDogForm") {
+      return set({ activeTab: "allDogs" });
+    }
+    return set({ activeTab: "createDogForm" });
+  },
+
 }));
