@@ -17,11 +17,8 @@ interface DogStore {
   ) => void;
   isFormActive: boolean;
   setIsFormActive: (by: boolean) => void;
-
   createDog: (dog: Omit<Dog, "id">) => Promise<void>;
   getDogs: () => void;
-  updateDog: (dogId: number, key: boolean) => void;
-  deleteDog: (dogId: number) => void;
   refetchDogs: () => Promise<void>;
   toggleFavorite: (dogId: number, isFav: boolean) => void;
   removeDog: (dogId: number) => void;
@@ -52,18 +49,6 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
   getDogs: () => {
     set({ isLoading: true });
     Requests.getAllDogs().finally(() => {
-      set({ isLoading: false });
-    });
-  },
-  updateDog: (dogId, key) => {
-    set({ isLoading: true });
-    Requests.updateDog(dogId, key).finally(() => {
-      set({ isLoading: false });
-    });
-  },
-  deleteDog: (dog) => {
-    set({ isLoading: true });
-    Requests.deleteDog(dog).finally(() => {
       set({ isLoading: false });
     });
   },
@@ -110,10 +95,6 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
   removeDog: (dogId) => {
     set({ isLoading: true });
     set((state) => {
-      const dog = state.allDogs.find((dog) => dog.id === dogId);
-      if (dog) {
-        console.log('deleting dog', dogId);
-      }
       return {
         allDogs: state.allDogs.filter((dog) => dog.id !== dogId),
         favDogs: state.allDogs.filter((dog) => dog.isFavorite === true),

@@ -1,88 +1,144 @@
 {
   "dogs": [
     {
-      "name": "Angelica",
-      "image": "/assets/boxer.png",
-      "description": "Implementation Accounts Smart South up Northeast male South",
+      "name": "Hyman",
+      "image": "/assets/chihuahua.avif",
+      "description": "concept Southwest Buckinghamshire sticky ectodermal Northwest calculate firewall",
       "isFavorite": false,
+      "id": 1
+    },
+    {
+      "name": "Lessie",
+      "image": "/assets/chihuahua.avif",
+      "description": "extend tart Marks calculate Manager Agent tote",
+      "isFavorite": false,
+      "id": 2
+    },
+    {
+      "name": "Forest",
+      "image": "/assets/cowardly.png",
+      "description": "Nissan payment Electronic pricey East Denmark mollitia",
+      "isFavorite": true,
+      "id": 3
+    },
+    {
+      "name": "Kiera",
+      "image": "/assets/chihuahua.avif",
+      "description": "Reggae oust flint Hackett Response Mexico maiores",
+      "isFavorite": true,
+      "id": 4
+    },
+    {
+      "name": "Beth",
+      "image": "/assets/chihuahua.avif",
+      "description": "impossible bypass Computer Persevering Frozen Product Southeast",
+      "isFavorite": true,
+      "id": 5
+    },
+    {
+      "name": "Tyrique",
+      "image": "/assets/chihuahua.avif",
+      "description": "mole lux seize Electric initiatives",
+      "isFavorite": false,
+      "id": 6
+    },
+    {
+      "name": "Judd",
+      "image": "/assets/dalmation.png",
+      "description": "parsing transform weld Montana furthermore navigating blue",
+      "isFavorite": false,
+      "id": 7
+    },
+    {
+      "name": "Odell",
+      "image": "/assets/cowardly.png",
+      "description": "Movies Bicycle methodology Transexual Arizona female interface frame",
+      "isFavorite": true,
+      "id": 8
+    },
+    {
+      "name": "Forest",
+      "image": "/assets/chihuahua.avif",
+      "description": "eggnog enterprise Legacy Accounts benchmark Kwanza Bicycle Rover",
+      "isFavorite": true,
+      "id": 9
+    },
+    {
+      "name": "Rusty",
+      "image": "/assets/cowardly.png",
+      "description": "Gasoline green Franc Radon Bangladesh",
+      "isFavorite": true,
       "id": 10
     },
     {
-      "name": "Oma",
-      "image": "/assets/boxer.png",
-      "description": "paltry fluid male Soul Granite Chief reboot Ford",
-      "isFavorite": false,
+      "name": "Percy",
+      "image": "/assets/cowardly.png",
+      "description": "yellow Berkshire metrics deposit build Rustic Electronic Southeast",
+      "isFavorite": true,
       "id": 11
     },
     {
-      "name": "Roy",
-      "image": "/assets/boxer.png",
-      "description": "North intrigue Jazz tool installation outface minus",
+      "name": "Abby",
+      "image": "/assets/chihuahua.avif",
+      "description": "Bugatti Future West policeman Dinar Reggae but eaque",
       "isFavorite": false,
       "id": 12
     },
     {
-      "name": "Lula",
-      "image": "/assets/corgi.png",
-      "description": "azure Hybrid driver man Crew Pangender Concrete synthesize",
+      "name": "Jacques",
+      "image": "/assets/cowardly.png",
+      "description": "Land North Paradigm dishonour salmon",
       "isFavorite": false,
       "id": 13
     },
     {
-      "name": "Ernestine",
-      "image": "/assets/chihuahua.avif",
-      "description": "faint Senior facilitate parallelism yellow Fish Manager",
+      "name": "Brenna",
+      "image": "/assets/dalmation.png",
+      "description": "tesla Fish Soft male Ergonomic",
       "isFavorite": false,
       "id": 14
     },
     {
-      "name": "Brianne",
-      "image": "/assets/corgi.png",
-      "description": "compress Multigender Minivan Lead Pickup",
-      "isFavorite": false,
+      "name": "Arnaldo",
+      "image": "/assets/blue-heeler.png",
+      "description": "Celsius withdrawal Savings West Future Turkish Oriental though",
+      "isFavorite": true,
       "id": 15
     },
     {
-      "name": "Trinity",
-      "image": "/assets/chihuahua.avif",
-      "description": "harness driver Iceland Southwest Oklahoma",
-      "isFavorite": false,
+      "name": "Leonel",
+      "image": "/assets/dalmation.png",
+      "description": "protocol Terbium chop navigating Pound Developer Gasoline orchestration",
+      "isFavorite": true,
       "id": 16
     },
     {
-      "name": "Tanner",
+      "name": "Morris",
       "image": "/assets/cowardly.png",
-      "description": "joule content Keyboard Proactive Southwest",
-      "isFavorite": true,
+      "description": "Senior Manager Configuration Southwest violet transitional Customer",
+      "isFavorite": false,
       "id": 17
     },
     {
-      "name": "Clementine",
-      "image": "/assets/chihuahua.avif",
-      "description": "female Chicken considering mobile withdrawal",
-      "isFavorite": false,
+      "name": "Callie",
+      "image": "/assets/boxer.png",
+      "description": "laudantium Darrel hack Hybrid Sierra Towels Bedfordshire maiores",
+      "isFavorite": true,
       "id": 18
     },
     {
-      "name": "hapy ",
-      "description": "ksdjfkasjdkfjsadff",
-      "image": "/assets/corgi.png",
+      "name": "Eleanore",
+      "image": "/assets/boxer.png",
+      "description": "disgusting Wooden Computers systems green yet facilitate",
       "isFavorite": true,
-      "id": 21
+      "id": 19
     },
     {
-      "name": "asdfasdfsad",
-      "description": "asdfasdfsdafsadfsadf",
-      "image": "/assets/chihuahua.avif",
-      "isFavorite": true,
-      "id": 29
-    },
-    {
-      "description": "asdfwasasdfasdf",
+      "description": "My mofuggin ol Boy",
       "image": "/assets/OG.jpg",
       "isFavorite": true,
-      "name": "favme",
-      "id": 32
+      "name": "OG",
+      "id": 20
     }
   ]
 }

@@ -1,19 +1,19 @@
 import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
-import { Dog } from "../types";
+
 import { useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalSection: React.FunctionComponent = () => {
-  const [allDogs, activeTab, setActiveTab, favDogs, notFavDogs, refetchDogs ] = useTheDogStore((store) => [
-    store.allDogs,
-    store.activeTab,
-    store.setActiveTab,
-    store.favDogs,
-    store.notFavDogs,
-    store.refetchDogs
-  ]);
-  
+  const [allDogs, activeTab, setActiveTab, favDogs, notFavDogs] =
+    useTheDogStore((store) => [
+      store.allDogs,
+      store.activeTab,
+      store.setActiveTab,
+      store.favDogs,
+      store.notFavDogs,
+    ]);
+
   return (
     <section id="main-section">
       <div className="container-header">
