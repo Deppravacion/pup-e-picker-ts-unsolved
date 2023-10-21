@@ -35,15 +35,9 @@ export const FunctionalDogs: React.FunctionComponent = () => {
             name: dog.name,
           }}
           key={dog.id}
-          onTrashIconClick={() => {
-            removeDog(dog.id);
-          }}
-          onHeartClick={() => {
-            toggleFavorite(dog.id, dog.isFavorite);
-          }}
-          onEmptyHeartClick={() => {      
-            toggleFavorite(dog.id, dog.isFavorite);
-          }}
+          onTrashIconClick={() => removeDog(dog.id)}
+          onHeartClick={() => toggleFavorite(dog.id, dog.isFavorite)}
+          onEmptyHeartClick={() => toggleFavorite(dog.id, dog.isFavorite)}
           isLoading={isLoading}
         />
       ))}

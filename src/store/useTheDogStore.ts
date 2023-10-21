@@ -1,4 +1,3 @@
-// import { create } from "zustand";
 import { create } from "zustand";
 import { Dog } from "../types";
 import { Requests } from "../api";
@@ -16,9 +15,8 @@ interface DogStore {
     activeTab: "allDogs" | "favDogs" | "notFavDogs" | "createDogForm"
   ) => void;
   isFormActive: boolean;
-  setIsFormActive: (by: boolean) => void;
+  setIsFormActive: (formStatus: boolean) => void;
   createDog: (dog: Omit<Dog, "id">) => Promise<void>;
-  getDogs: () => void;
   refetchDogs: () => Promise<void>;
   toggleFavorite: (dogId: number, isFav: boolean) => void;
   removeDog: (dogId: number) => void;
@@ -32,10 +30,12 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
   setIsLoading: (isLoading) => ({ isLoading: isLoading }),
   allDogs: [],
   setAllDogs: (dogs) => set(() => ({ allDogs: dogs })),
+  favDogs: [],
+  notFavDogs: [],
   activeTab: "allDogs",
   setActiveTab: (activeTab) => set(() => ({ activeTab: activeTab })),
   isFormActive: false,
-  setIsFormActive: (by) => set(() => ({ isFormActive: by })),
+  setIsFormActive: (formStatus) => set(() => ({ isFormActive: formStatus })),
   createDog: async (dog) => {
     set({ isLoading: true });
     return Requests.postDog(dog)
@@ -48,12 +48,6 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
       .finally(() => {
         set({ isLoading: false });
       });
-  },
-  getDogs: () => {
-    set({ isLoading: true });
-    Requests.getAllDogs().finally(() => {
-      set({ isLoading: false });
-    });
   },
   refetchDogs: async () => {
     set({ isLoading: true });
@@ -69,8 +63,6 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
         set({ isLoading: false });
       });
   },
-  favDogs: [],
-  notFavDogs: [],
   toggleFavorite: (dogId, isFav) => {
     set({ isLoading: true });
     set((state) => {
@@ -133,5 +125,4 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
     }
     return set({ activeTab: "createDogForm" });
   },
-
 }));
