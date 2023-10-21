@@ -1,66 +1,38 @@
 {
   "dogs": [
     {
-      "name": "River",
-      "image": "/assets/blue-heeler.png",
-      "description": "logistical Country Steel Beryllium Southeast orange Wagon Fish",
-      "isFavorite": true,
-      "id": 0
-    },
-    {
-      "name": "Brice",
-      "image": "/assets/chihuahua.avif",
-      "description": "Avon Executive South Territories Pines Chicken duh and",
-      "isFavorite": true,
-      "id": 6
-    },
-    {
-      "name": "Billie",
-      "image": "/assets/cowardly.png",
-      "description": "Hauck person failing Agent knowingly bypass modulo Convertible",
-      "isFavorite": true,
-      "id": 8
-    },
-    {
-      "name": "Dee",
-      "image": "/assets/dalmation.png",
-      "description": "Investor Cheese Kenneth Table Ferrari Tools Wooden",
-      "isFavorite": true,
-      "id": 9
-    },
-    {
       "name": "Angelica",
       "image": "/assets/boxer.png",
       "description": "Implementation Accounts Smart South up Northeast male South",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 10
     },
     {
       "name": "Oma",
       "image": "/assets/boxer.png",
       "description": "paltry fluid male Soul Granite Chief reboot Ford",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 11
     },
     {
       "name": "Roy",
       "image": "/assets/boxer.png",
       "description": "North intrigue Jazz tool installation outface minus",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 12
     },
     {
       "name": "Lula",
       "image": "/assets/corgi.png",
       "description": "azure Hybrid driver man Crew Pangender Concrete synthesize",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 13
     },
     {
       "name": "Ernestine",
       "image": "/assets/chihuahua.avif",
       "description": "faint Senior facilitate parallelism yellow Fish Manager",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 14
     },
     {
@@ -74,7 +46,7 @@
       "name": "Trinity",
       "image": "/assets/chihuahua.avif",
       "description": "harness driver Iceland Southwest Oklahoma",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 16
     },
     {
@@ -108,7 +80,7 @@
     {
       "description": "asdfwasasdfasdf",
       "image": "/assets/OG.jpg",
-      "isFavorite": false,
+      "isFavorite": true,
       "name": "favme",
       "id": 32
     }
