@@ -47,22 +47,10 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
         toast.success("your dog has been created");
       })
       .catch(() => {
-        toast.error("changes reverted");
+        toast.error("changes reverted, error creating dog");
         set({ allDogs: existingDogs });
       });
   },
-  // createDog: (dog) => {
-  //   return Requests.postDog(dog)
-  //     .then(() => {
-  //       return get().refetchDogs();
-  //     })
-  //     .then(() => {
-  //       toast.success("your dog has been created");
-  //     })
-  //     .finally(() => {
-  //       set({ isLoading: false });
-  //     });
-  // },
   refetchDogs: async () => {
     set({ isLoading: true });
     return Requests.getAllDogs()
