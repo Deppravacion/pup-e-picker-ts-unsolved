@@ -14,34 +14,34 @@ export const FunctionalCreateDogForm: React.FC = () => {
 
   return (
     <form
-      action=""
-      id="create-dog-form"
+      action=''
+      id='create-dog-form'
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(e);
       }}
     >
       <h4>Create a New Dog</h4>
-      <label htmlFor="name">Dog Name</label>
+      <label htmlFor='name'>Dog Name</label>
       <input
-        type="text"
+        type='text'
         disabled={false}
         onChange={(e) => setInputName(e.target.value)}
         value={inputName}
       />
-      <label htmlFor="description">Dog Description</label>
+      <label htmlFor='description'>Dog Description</label>
       <textarea
-        name=""
-        id=""
+        name=''
+        id=''
         cols={80}
         rows={10}
         disabled={false}
         value={inputDescription}
         onChange={(e) => setInputDescription(e.target.value)}
       ></textarea>
-      <label htmlFor="picture">Select an Image</label>
+      <label htmlFor='picture'>Select an Image</label>
       <select
-        id=""
+        id=''
         onChange={(e) => setInputPicture(e.target.value)}
         value={inputPicture}
       >
@@ -53,7 +53,7 @@ export const FunctionalCreateDogForm: React.FC = () => {
           );
         })}
       </select>
-      <input type="submit" disabled={isLoading} />
+      <input type='submit' disabled={isLoading} />
     </form>
   );
   function handleSubmit(e: React.FormEvent): void {

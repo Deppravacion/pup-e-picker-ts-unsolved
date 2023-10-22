@@ -2,48 +2,44 @@ import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
 import { selectDogs, useTheDogStore } from "../store/useTheDogStore";
-
 export const FunctionalSection: React.FunctionComponent = () => {
-  const {
-    allDogs,
-    favDogs,
-    notFavDogs,
-    activeTab,
-    onClickCreateDogForm,
-    onClickFavDogs,
-    onClickNotFavDogs,
-  } = useTheDogStore((store) => ({
-    ...store,
-    favDogs: selectDogs.favDogs(store),
-    notFavDogs: selectDogs.notFavDogs(store),
-  }));
+  const { allDogsCount, favDogsCount, notFavDogsCount, activeTab, toggleTab } =
+    useTheDogStore((store) => ({
+      ...store,
+      allDogsCount: selectDogs.allDogsCount(store),
+      favDogsCount: selectDogs.favDogsCount(store),
+      notFavDogsCount: selectDogs.notFavDogsCount(store),
+    }));
 
   return (
     <section id='main-section'>
       <div className='container-header'>
         <div className='container-label'>{`Dogs: ${
           activeTab === "favDogs"
-            ? favDogs.length
+            ? favDogsCount
             : activeTab === "notFavDogs"
-            ? notFavDogs.length
-            : allDogs.length
+            ? notFavDogsCount
+            : allDogsCount
         } `}</div>
         <div className='selectors'>
           <div
+            id='favDogs'
             className={`selector ${activeTab === "favDogs" && "active"}`}
-            onClick={() => onClickFavDogs()}
+            onClick={(e) => toggleTab(e)}
           >
-            {`favorited ( ${favDogs.length} )`}
+            {`favorited ( ${favDogsCount} )`}
           </div>
           <div
+            id='notFavDogs'
             className={`selector ${activeTab === "notFavDogs" && "active"}`}
-            onClick={() => onClickNotFavDogs()}
+            onClick={(e) => toggleTab(e)}
           >
-            {`un-favorited ( ${notFavDogs.length} )`}
+            {`un-favorited ( ${notFavDogsCount} )`}
           </div>
           <div
+            id='createDogForm'
             className='selector toForm_btn'
-            onClick={() => onClickCreateDogForm()}
+            onClick={(e) => toggleTab(e)}
           >
             {`create dog`}
           </div>

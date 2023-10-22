@@ -1,38 +1,17 @@
 {
   "dogs": [
     {
-      "name": "Lessie",
-      "image": "/assets/chihuahua.avif",
-      "description": "extend tart Marks calculate Manager Agent tote",
-      "isFavorite": false,
-      "id": 2
-    },
-    {
-      "name": "Kiera",
-      "image": "/assets/chihuahua.avif",
-      "description": "Reggae oust flint Hackett Response Mexico maiores",
-      "isFavorite": true,
-      "id": 4
-    },
-    {
-      "name": "Tyrique",
-      "image": "/assets/chihuahua.avif",
-      "description": "mole lux seize Electric initiatives",
-      "isFavorite": true,
-      "id": 6
-    },
-    {
       "name": "Judd",
       "image": "/assets/dalmation.png",
       "description": "parsing transform weld Montana furthermore navigating blue",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 7
     },
     {
       "name": "Odell",
       "image": "/assets/cowardly.png",
       "description": "Movies Bicycle methodology Transexual Arizona female interface frame",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 8
     },
     {
@@ -46,14 +25,14 @@
       "name": "Rusty",
       "image": "/assets/cowardly.png",
       "description": "Gasoline green Franc Radon Bangladesh",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 10
     },
     {
       "name": "Percy",
       "image": "/assets/cowardly.png",
       "description": "yellow Berkshire metrics deposit build Rustic Electronic Southeast",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 11
     },
     {
@@ -74,7 +53,7 @@
       "name": "Arnaldo",
       "image": "/assets/blue-heeler.png",
       "description": "Celsius withdrawal Savings West Future Turkish Oriental though",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 15
     },
     {
@@ -113,11 +92,18 @@
       "id": 23
     },
     {
-      "description": "0",
-      "image": "/assets/cowardly.png",
+      "description": "wth",
+      "image": "/assets/yorki.png",
       "isFavorite": true,
-      "name": "654654654654",
-      "id": 24
+      "name": "zustand",
+      "id": 25
+    },
+    {
+      "description": "sailyyo",
+      "image": "/assets/yorki.png",
+      "isFavorite": true,
+      "name": "tallyho",
+      "id": 26
     }
   ]
 }
