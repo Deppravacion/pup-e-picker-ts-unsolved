@@ -1,25 +1,11 @@
 {
   "dogs": [
     {
-      "name": "Hyman",
-      "image": "/assets/chihuahua.avif",
-      "description": "concept Southwest Buckinghamshire sticky ectodermal Northwest calculate firewall",
-      "isFavorite": false,
-      "id": 1
-    },
-    {
       "name": "Lessie",
       "image": "/assets/chihuahua.avif",
       "description": "extend tart Marks calculate Manager Agent tote",
       "isFavorite": false,
       "id": 2
-    },
-    {
-      "name": "Forest",
-      "image": "/assets/cowardly.png",
-      "description": "Nissan payment Electronic pricey East Denmark mollitia",
-      "isFavorite": true,
-      "id": 3
     },
     {
       "name": "Kiera",
@@ -32,7 +18,7 @@
       "name": "Tyrique",
       "image": "/assets/chihuahua.avif",
       "description": "mole lux seize Electric initiatives",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 6
     },
     {
@@ -85,25 +71,11 @@
       "id": 13
     },
     {
-      "name": "Brenna",
-      "image": "/assets/dalmation.png",
-      "description": "tesla Fish Soft male Ergonomic",
-      "isFavorite": false,
-      "id": 14
-    },
-    {
       "name": "Arnaldo",
       "image": "/assets/blue-heeler.png",
       "description": "Celsius withdrawal Savings West Future Turkish Oriental though",
       "isFavorite": true,
       "id": 15
-    },
-    {
-      "name": "Leonel",
-      "image": "/assets/dalmation.png",
-      "description": "protocol Terbium chop navigating Pound Developer Gasoline orchestration",
-      "isFavorite": true,
-      "id": 16
     },
     {
       "name": "Morris",
@@ -127,11 +99,25 @@
       "id": 19
     },
     {
-      "description": "My mofuggin ol Boy",
-      "image": "/assets/OG.jpg",
+      "description": "zxdvzxdvxczvxzcvxz",
+      "image": "/assets/corgi.png",
       "isFavorite": true,
-      "name": "OG",
-      "id": 20
+      "name": "tttt",
+      "id": 21
+    },
+    {
+      "description": "1236514896651321",
+      "image": "/assets/dalmation.png",
+      "isFavorite": true,
+      "name": "69695858474",
+      "id": 23
+    },
+    {
+      "description": "0",
+      "image": "/assets/cowardly.png",
+      "isFavorite": true,
+      "name": "654654654654",
+      "id": 24
     }
   ]
 }

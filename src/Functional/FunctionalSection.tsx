@@ -1,38 +1,34 @@
 import { SectionLayout } from "./layouts/SectionLayout";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
-import { useTheDogStore } from "../store/useTheDogStore";
+import { selectDogs, useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalSection: React.FunctionComponent = () => {
-  const [
+  const {
     allDogs,
-    activeTab,
     favDogs,
     notFavDogs,
+    activeTab,
+    onClickCreateDogForm,
     onClickFavDogs,
     onClickNotFavDogs,
-    onClickCreateDogForm,
-  ] = useTheDogStore((store) => [
-    store.allDogs,
-    store.activeTab,
-    store.favDogs,
-    store.notFavDogs,
-    store.onClickFavDogs,
-    store.onClickNotFavDogs,
-    store.onClickCreateDogForm,
-  ]);
+  } = useTheDogStore((store) => ({
+    ...store,
+    favDogs: selectDogs.favDogs(store),
+    notFavDogs: selectDogs.notFavDogs(store),
+  }));
 
   return (
-    <section id="main-section">
-      <div className="container-header">
-        <div className="container-label">{`Dogs: ${
+    <section id='main-section'>
+      <div className='container-header'>
+        <div className='container-label'>{`Dogs: ${
           activeTab === "favDogs"
             ? favDogs.length
             : activeTab === "notFavDogs"
             ? notFavDogs.length
             : allDogs.length
         } `}</div>
-        <div className="selectors">
+        <div className='selectors'>
           <div
             className={`selector ${activeTab === "favDogs" && "active"}`}
             onClick={() => onClickFavDogs()}
@@ -46,7 +42,7 @@ export const FunctionalSection: React.FunctionComponent = () => {
             {`un-favorited ( ${notFavDogs.length} )`}
           </div>
           <div
-            className="selector toForm_btn"
+            className='selector toForm_btn'
             onClick={() => onClickCreateDogForm()}
           >
             {`create dog`}

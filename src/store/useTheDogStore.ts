@@ -8,8 +8,8 @@ interface DogStore {
   setIsLoading: (isLoading: boolean) => void;
   allDogs: Dog[];
   setAllDogs: (dogs: Dog[]) => void;
-  favDogs: Dog[];
-  notFavDogs: Dog[];
+  // favDogs: Dog[];
+  // notFavDogs: Dog[];
   activeTab: "allDogs" | "favDogs" | "notFavDogs" | "createDogForm";
   setActiveTab: (
     activeTab: "allDogs" | "favDogs" | "notFavDogs" | "createDogForm"
@@ -36,8 +36,8 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
   setActiveTab: (activeTab) => set(() => ({ activeTab: activeTab })),
   isFormActive: false,
   setIsFormActive: (formStatus) => set(() => ({ isFormActive: formStatus })),
+
   createDog: async (dog) => {
-    set({ isLoading: true });
     return Requests.postDog(dog)
       .then(() => {
         return get().refetchDogs();
@@ -55,8 +55,8 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
       .then((dogs) =>
         set({
           allDogs: dogs,
-          favDogs: dogs.filter((dog) => dog.isFavorite === true),
-          notFavDogs: dogs.filter((dog) => dog.isFavorite === false),
+          // favDogs: dogs.filter((dog) => dog.isFavorite),
+          // notFavDogs: dogs.filter((dog) => !dog.isFavorite),
         })
       )
       .finally(() => {
@@ -64,7 +64,6 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
       });
   },
   toggleFavorite: (dogId, isFav) => {
-    set({ isLoading: true });
     set((state) => {
       const dog = state.allDogs.find((dog) => dog.id === dogId);
       if (dog) {
@@ -72,40 +71,31 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
       }
       return {
         allDogs: state.allDogs,
-        favDogs: state.allDogs.filter((dog) => dog.isFavorite === true),
-        notFavDogs: state.allDogs.filter((dog) => dog.isFavorite === false),
+        // favDogs: state.allDogs.filter((dog) => dog.isFavorite),
+        // notFavDogs: state.allDogs.filter((dog) => !dog.isFavorite),
       };
     });
-    Requests.updateDog(dogId, !isFav)
-      .then((response) => {
-        if (!response.ok) {
-          set((state) => ({ allDogs: state.allDogs }));
-          toast.error("something went wrong");
-        } else return;
-      })
-      .finally(() => {
-        set({ isLoading: false });
-      });
+    Requests.updateDog(dogId, !isFav).then((response) => {
+      if (!response.ok) {
+        set((state) => ({ allDogs: state.allDogs }));
+        toast.error("something went wrong");
+      } else return;
+    });
   },
   removeDog: (dogId) => {
-    set({ isLoading: true });
     set((state) => {
       return {
         allDogs: state.allDogs.filter((dog) => dog.id !== dogId),
-        favDogs: state.allDogs.filter((dog) => dog.isFavorite === true),
-        notFavDogs: state.allDogs.filter((dog) => dog.isFavorite === false),
+        // favDogs: state.allDogs.filter((dog) => dog.isFavorite),
+        // notFavDogs: state.allDogs.filter((dog) => !dog.isFavorite),
       };
     });
-    Requests.deleteDog(dogId)
-      .then((response) => {
-        if (!response.ok) {
-          set((state) => ({ allDogs: state.allDogs }));
-          toast.error("something went wrong");
-        } else return;
-      })
-      .finally(() => {
-        set({ isLoading: false });
-      });
+    Requests.deleteDog(dogId).then((response) => {
+      if (!response.ok) {
+        set((state) => ({ allDogs: state.allDogs }));
+        toast.error("something went wrong");
+      } else return;
+    });
   },
   onClickFavDogs: () => {
     if (get().activeTab === "favDogs") {
@@ -126,3 +116,8 @@ export const useTheDogStore = create<DogStore>()((set, get) => ({
     return set({ activeTab: "createDogForm" });
   },
 }));
+
+export const selectDogs = {
+  favDogs: (store: DogStore) => store.allDogs.filter((dog) => dog.isFavorite),
+  notFavDogs: (store: DogStore) => store.allDogs.filter((dog) => !dog.isFavorite),
+}

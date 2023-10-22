@@ -1,6 +1,6 @@
 import { DogCard } from "../Shared/DogCard";
 import { Dog } from "../types";
-import { useTheDogStore } from "../store/useTheDogStore";
+import { selectDogs, useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalDogs: React.FunctionComponent = () => {
   const {
@@ -11,7 +11,11 @@ export const FunctionalDogs: React.FunctionComponent = () => {
     isLoading,
     toggleFavorite,
     removeDog,
-  } = useTheDogStore();
+  } = useTheDogStore((store) => ({
+    ...store,
+    favDogs: selectDogs.favDogs(store),
+    notFavDogs: selectDogs.notFavDogs(store),
+  }));
 
   const filteredDogs = (() => {
     if (activeTab === "favDogs") {

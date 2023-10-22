@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { dogPictures } from "../dog-pictures";
-import { toast } from "react-hot-toast";
 import { useTheDogStore } from "../store/useTheDogStore";
 
 export const FunctionalCreateDogForm: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
   const [inputDescription, setInputDescription] = useState<string>("");
   const [inputPicture, setInputPicture] = useState<string>("/assets/OG.jpg");
-  const [createDog, isLoading] = useTheDogStore((store) => [
+  const [createDog, isLoading, setActiveTab] = useTheDogStore((store) => [
     store.createDog,
     store.isLoading,
+    store.setActiveTab,
   ]);
 
   return (
@@ -63,8 +63,9 @@ export const FunctionalCreateDogForm: React.FC = () => {
       image: inputPicture,
       isFavorite: true,
       name: inputName,
-    }).then(() => resetInputState());
-    toast.success("Dog created");
+    })
+      .then(() => resetInputState())
+      .then(() => setActiveTab("allDogs"));
   }
   function resetInputState(): void {
     setInputName("");
